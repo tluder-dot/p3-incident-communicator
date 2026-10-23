@@ -8,9 +8,9 @@
 |---|---|---|
 | Till Lüder | tluder-dot | |
 | Evaluna Barth | evalunab | |
-| Benjamin Rasson | | |
-| Teo Desquatrevaux | | |
-| Coline Renauld | | |
+| Benjamin Rasson | benji1759 | |
+| Teo Desquatrevaux | teodesquatrevaux | |
+| Coline Renauld | colinernld | |
 
 ## Our agent
 - **Starting point:** P3 · Proactive incident communicator, DevOps / observability SaaS
