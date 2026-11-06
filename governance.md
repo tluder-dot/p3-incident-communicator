@@ -17,7 +17,33 @@
 - **Which cost-of-error line is a legal or reputational risk, not just money?** A **wrong public statement** (wrong cause, wrong ETA, "no data lost" when data was lost) is reputational and contractual: a written, timestamped statement customers can hold against us. **Cross-tenant leakage** is legal (GDPR, confidentiality clauses). A wrong **"your data is not affected"** is reputational: the customer may miss their own outage. That last one is why category 2 is out of scope in 02_sizing.xlsx: its expected error cost (about €15.6k a year) is three times its value (about €5.6k), so those questions go to a human (L1). Unrelated tickets wrongly attached are mostly money (€10 to €50 per error in the sheet), reputational only if one is a security report.
 - **Who in the company owns that risk?** Wrong public statements: the **VP Engineering**, exercised by the incident commander on duty. Cross-tenant leakage: the **DPO**, with the Head of Support. Wrong impact answers and wrongly attached tickets: the **Head of Support**.
 
-## Session 3 · data (to come)
+## Session 3 · data and trust level
+
+### The six-question data audit
+| # | Question | Our answer | Source type | To check with |
+|---|---|---|---|---|
+| 1 | **Provenance** — where does each row come from, who collected it, when? | Tickets: written by customers' employees in the ticketing tool. Error rates: Telemetra's monitoring stream. Incident timeline and channel: written by on-call engineers in the incident tool and chat. Status-page posts: written by incident commanders. Account → component/region map: billing or CMDB, maintained by ops. **The MVP eval-set is invented** (no real customer data), with the origin written in every row. | guess (systems assumed from P3) | Ops: who owns the account → component map |
+| 2 | **Volume & labels** — how many rows, labelled by whom, with which guideline? | ≈ 20 major incidents × 1,500 tickets ≈ 30,000 incident tickets a year. Existing incident tags are applied by support engineers during the rush, with no written guideline: incomplete. We relabel 200 tickets from ~10 past incidents with a one-page guideline (which incident, category, hand-over yes/no), two labellers, disagreements discussed. | guess · to measure on the ticket log | Support lead |
+| 3 | **Coverage** — languages, plans, regions vs the users we ship to? | Mostly English (share unknown); EU and US regions; self-serve and enterprise plans. Under-covered: non-English tickets, overlapping incidents (rare, catastrophic for clustering), enterprise accounts with a CSM, incidents on components with few customers. We oversample overlapping incidents and unrelated urgent tickets. | guess | Support: language share · postmortems: overlapping incidents |
+| 4 | **Rights** — legal basis, contract, retention | Answering a ticket: performance of the support contract (GDPR art. 6(1)(b)). Clustering: legitimate interest (art. 6(1)(f)), LIA to write. **Reusing past tickets to build the eval-set or tune thresholds is a different purpose** (art. 5(1)(b)): check the customer contract and DPA first; until then, invented cases only. LLM provider under a DPA: no training on our data, EU processing. | analogy (GDPR) | **DPO** |
+| 5 | **Leakage** — can a row reappear in the test, or in another customer's answer? | Test leakage: we split the eval-set **by incident**, never by ticket. Cross-customer leakage: one cluster holds hundreds of tenants; the reply is a template built only from IC-approved public facts + that tenant's own region/components; the status-update drafter reads alerts and the incident channel, never tickets. Secrets pasted in tickets (API keys, hostnames) are redacted before any model call. | design requirement | Engineering · DPO |
+| 6 | **Freshness** — how old, does that world still exist? | Component names, regions and status-page templates change. Incidents older than 12 months may describe a retired architecture: we keep the last 12 months and re-check labels when the component map changes. | guess | Ops |
+
+- **Purpose limitation (GDPR art. 5):** ticket data is used to attach a ticket to an incident and to answer it, kept for the incident plus 30 days for reopens and audit (guess, to confirm with Legal). Logs of drafts, approvals and sent messages are kept for audit (period to confirm). No model is trained on customer tickets.
+- **Isolation between customers:** replies never quote or summarise other tickets; the only shared content is the IC-approved update; the guardrail checker blocks any customer name or domain that is not the recipient's own.
+- **Known gaps by segment:** non-English tickets (human fallback, results reported by language); enterprise accounts (the CSM also writes personally); overlapping incidents (oversampled, reported separately); unrelated tickets arriving during an incident (time to first human response is a counter-metric).
+
+### Trust level per step (same scale as Session 1)
+| Step | Trust level | Why (cost of an error) |
+|---|---|---|
+| Open a cluster (threshold, declared incident, ticket spike) | L4 | Internal, reversible; alerts the support lead |
+| Attach a ticket to the incident | L4 above the confidence threshold · L1 below | False clustering buries urgent unrelated tickets: low confidence goes to a human |
+| Summarise the incident channel into facts | L1 | Facts change minute by minute; the IC confirms |
+| Draft and publish the status update | L2 | Public and irreversible: the IC approves or edits |
+| First reply to the cluster + recipient list | L2 | First external message; the IC approves |
+| Follow-ups on approved facts only | L4 | Same content as the approved update, matched to the account's region |
+| Cause, ETA, data loss, SLA credits, contracts | Person only (agent attaches a summary) | Legal and contractual (€400–1,500 per error in the sizing) |
+| Resolution notice · sending it to the cluster | L2 · L4 | Same pattern as the update |
 ## Session 4 · human-in-the-loop points and the override switch (to come)
 ## Session 5 · counter-metrics and the segments we report (to come)
 ## Session 6 · protected segments and the harm threshold that stops an experiment (to come)

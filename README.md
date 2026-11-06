@@ -37,17 +37,18 @@ One numbered file per session. Every member authors commits in at least four of 
 |---|---|---|
 | `00_pitch.md` | before S3, only if you bring your own idea | not needed (we start from P3) |
 | `01_problem_statement.md` | S1 and S2, Assignment 1 | done |
-| `governance.md` | created for Assignment 1, one line added every session | S1 and S2 done |
+| `governance.md` | created for Assignment 1, one line added every session | S1, S2 and S3 done |
 | `02_sizing.xlsx` | S2, Assignment 2 | done |
 | `02_investment_memo.md` | S2, Assignment 2 | done |
-| `03_product_brief.md` | S3 | |
+| `03_product_brief.md` | S3 | v1 done · v2 after user research |
+| `03_ai_lean_canvas.md`, `03_user_research.md`, `03_prototype_link.md` | S3, Assignment 3 | canvas done · research to run · prototype v0.1 |
 | `04_architecture.md` | S4 | |
 | `05_metrics.md` | S5 | |
 | `06_ab_protocol.md` | S6 | |
 | `07_operations.md` | S7 | |
 | `08_launch_memo.md` | S8 | |
-| `spec.md`, `product_brief.md` | final | |
-| `/prototype`, `/evals` | from S4 | |
+| `spec.md`, `product_brief.md` | skeleton in S3, final in S8 | spec skeleton v0 done |
+| `/prototype`, `/evals` | from S4 | IC console prototype · eval_set_v0.csv (20 cases) |
 
 ## Rules
 - Commit with your own Git account: the individual question at the oral is about a commit you signed.
