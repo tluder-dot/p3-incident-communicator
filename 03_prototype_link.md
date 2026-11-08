@@ -27,4 +27,5 @@ facts. Pause falls back to the auto-acknowledge reply with the status-page link.
 ```
 
 - **Usability task (for `03_user_research.md`):** fix the draft so it can be approved, find the ticket that should not be in the cluster, approve. (Planted traps: the draft states an unconfirmed Kafka cause and a 30-minute ETA; ticket T-4823 is a billing question attached at 0.81.)
-- **Screenshot:** *add `prototype/ic_console.png` after the first test and link it here.*
+- **Screenshot:** ![IC console v0.1: the draft is blocked by the planted Kafka cause and 30-minute ETA](prototype/ic_console.png)
+- **Source file:** `prototype/ic_console.html` was rebuilt on 8 November 2026 from the prompt above (same screen, same planted traps, same scenario as `evals/eval_set_v0.csv`), because the original artifact source had not been committed. Open it in any browser, no install needed.

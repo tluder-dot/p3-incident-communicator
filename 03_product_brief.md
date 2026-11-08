@@ -35,11 +35,11 @@ Reach = incident tickets a month touched by the feature, from `02_sizing.xlsx` (
 | Guardrail checker: block any unapproved cause / ETA / impact / data-loss wording and any other customer's name | 1,750 | 2 | 100 % | 0.5 | 7,000 | **MUST** |
 | Auto-acknowledge rule during a declared incident (the baseline, and the fallback) | 2,500 | 0.5 | 100 % | 0.25 | 5,000 | SHOULD |
 | Eval-set: replay of past incidents, labelled by two people | 2,500 | 1 | 100 % | 1 | 2,500 | **MUST** |
+| Category router: status / impact / cause-credit / unrelated | 2,500 | 1 | 80 % | 1 | 2,000 | SHOULD |
 | Ticket → incident attach, with confidence score and a human queue below threshold | 2,500 | 3 | 50 % | 3 | 1,250 | **MUST** |
 | IC console: drafted status update + first cluster reply + recipient list, approve / edit, pause switch | 1,750 | 2 | 50 % | 2 | 875 | **MUST** |
-| Category router: status / impact / cause-credit / unrelated | 2,500 | 1 | 80 % | 1 | 2,000 | SHOULD |
-| Early detection from the error-rate stream, before the incident is declared | 2,500 | 1 | 50 % | 2 | 625 | COULD |
 | Proactive message to affected accounts before they open a ticket (needs account → component map) | 1,750 | 3 | 50 % | 4 | 656 | WON'T |
+| Early detection from the error-rate stream, before the incident is declared | 2,500 | 1 | 50 % | 2 | 625 | COULD |
 | Answers to "is my data or alerting affected?" | 500 | 2 | 50 % | 3 | 167 | WON'T |
 | Multilingual replies | 250 | 1 | 50 % | 2 | 63 | WON'T |
 
@@ -47,7 +47,7 @@ Reach = incident tickets a month touched by the feature, from `02_sizing.xlsx` (
 - **SHOULD:** auto-acknowledge rule (fallback) · category router.
 - **COULD:** early detection from the error-rate stream.
 - **WON'T this time (dated 6 Nov 2026) — the out-of-scope list:** (1) proactive messages to accounts that have not written; (2) "is my data affected?" answers (expected error cost €15.6k > value €5.6k, sizing); (3) root cause, ETA, SLA credits, compensation; (4) multilingual replies; (5) publishing anything to the status page without the IC; (6) LLM-written replies to customers (replies are templates filled with approved facts); (7) incidents not on the Telemetra platform (customer's own outage).
-- **The feature that tests our flip assumption, and why it is a MUST:** ticket → incident attach. Its RICE is only 4th because our confidence is 50 %: false clustering is the P3 trap, and whether follow-ups can run at L4 at all depends on its precision. It is the riskiest assumption (H1), so we build it first to learn. The other half of the flip — incident **volume** (×2 needed, memo §2) — is not a feature: it is checked on the 12-month ticket log.
+- **The feature that tests our flip assumption, and why it is a MUST:** ticket → incident attach. Its RICE is only 5th of 10 because our confidence is 50 %: false clustering is the P3 trap, and whether follow-ups can run at L4 at all depends on its precision. It is the riskiest assumption (H1), so we build it first to learn. The other half of the flip — incident **volume** (×2 needed, memo §2) — is not a feature: it is checked on the 12-month ticket log.
 - **The cut that hurt the most:** proactive messages to accounts that have not written yet. It is the heart of our press release, but it needs the account → component map and a higher trust level than this MVP can earn.
 
 ## 4. Data *(six-question audit — details in governance.md, Session 3)*
