@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incident Messenger · IC console</title>
+<style>
+  :root {
+    --bg: #f4f3ef; --surface: #ffffff; --sunken: #ecebe5; --line: #dddbd2; --line-strong: #c9c6ba;
+    --text: #1f2328; --text-2: #4f555c; --text-3: #6b7178;
+    --accent: #2f5d8a; --accent-soft: #e3ecf5; --ok: #2f7a4d; --ok-soft: #e2f1e7;
+    --warn: #9a6a12; --warn-soft: #fbf0d9; --danger: #b2382a; --danger-soft: #fbe6e2;
+    --r: 10px; --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 var(--font); }
+  button { font: inherit; cursor: pointer; }
+  header { display: flex; align-items: center; gap: 16px; padding: 12px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }
+  .brand { font-weight: 700; letter-spacing: -.01em; }
+  .brand small { font-weight: 500; color: var(--text-3); margin-left: 6px; }
+  .who { margin-left: auto; color: var(--text-3); font-size: 13px; }
+  .rail { display: flex; gap: 10px; padding: 12px 20px; border-bottom: 1px solid var(--line); background: var(--sunken); flex-wrap: wrap; }
+  .inc { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 8px 12px; border-radius: var(--r); border: 1px solid var(--line-strong); background: var(--surface); min-width: 250px; }
+  .inc.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .inc b { font-size: 13px; }
+  .inc span { font-size: 12px; color: var(--text-3); }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--danger); margin-right: 6px; }
+  .rail .note { align-self: center; font-size: 12px; color: var(--text-3); }
+  .banner { display: none; padding: 10px 20px; background: var(--warn-soft); color: var(--warn); border-bottom: 1px solid #ecd9a8; font-weight: 600; }
+  .banner.on { display: block; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; padding: 16px 20px 32px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin: 0; }
+  .tabs { display: flex; border-bottom: 1px solid var(--line); }
+  .tabs button { flex: 1; padding: 11px; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--text-3); font-weight: 600; }
+  .tabs button.on { color: var(--text); border-bottom-color: var(--accent); }
+  .count { display: inline-block; margin-left: 6px; padding: 0 7px; border-radius: 9px; background: var(--sunken); font-size: 12px; }
+  .rule { padding: 8px 14px; font-size: 12px; color: var(--text-3); background: #fafaf7; border-bottom: 1px solid var(--line); }
+  ul.tickets { list-style: none; margin: 0; padding: 0; max-height: 560px; overflow: auto; }
+  .tk { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+  .tk .id { font: 12px var(--mono); color: var(--text-3); }
+  .tk .txt { grid-column: 1 / 2; }
+  .tk .side { grid-row: 1 / 3; grid-column: 2; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .conf { font: 600 12px var(--mono); padding: 2px 7px; border-radius: 6px; background: var(--ok-soft); color: var(--ok); }
+  .conf.mid { background: var(--warn-soft); color: var(--warn); }
+  .conf.low { background: var(--danger-soft); color: var(--danger); }
+  .why { font-size: 12px; font-weight: 600; color: var(--danger); }
+  .ghost { padding: 4px 9px; border-radius: 7px; border: 1px solid var(--line-strong); background: var(--surface); font-size: 12px; color: var(--text-2); }
+  .ghost:hover { background: var(--sunken); }
+  .more { padding: 10px 14px; color: var(--text-3); font-size: 13px; }
+  .right { display: flex; flex-direction: column; gap: 16px; }
+  .block { padding: 14px 16px; }
+  .block + .block { border-top: 1px solid var(--line); }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+  .lvl { font: 600 11px var(--mono); padding: 2px 6px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); }
+  textarea { width: 100%; min-height: 118px; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: var(--r); font: 14px/1.5 var(--font); resize: vertical; color: var(--text); }
+  textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .guard { margin-top: 10px; padding: 10px 12px; border-radius: var(--r); font-size: 13px; }
+  .guard.block { background: var(--danger-soft); color: var(--danger); border: 1px solid #f0c3ba; }
+  .guard.pass { background: var(--ok-soft); color: var(--ok); border: 1px solid #bfe0ca; }
+  .guard ul { margin: 6px 0 0 18px; padding: 0; }
+  .reply { padding: 10px 12px; border: 1px dashed var(--line-strong); border-radius: var(--r); background: #fbfbf8; white-space: pre-line; font-size: 13.5px; }
+  .disc { color: var(--text-3); font-size: 12.5px; }
+  .meta { color: var(--text-2); font-size: 13px; }
+  .actions { display: flex; gap: 10px; padding: 14px 16px; border-top: 1px solid var(--line); background: #fafaf7; align-items: center; flex-wrap: wrap; }
+  .primary { padding: 9px 16px; border-radius: 9px; border: 1px solid var(--accent); background: var(--accent); color: #fff; font-weight: 600; }
+  .primary:disabled { background: var(--line-strong); border-color: var(--line-strong); color: #fff; cursor: not-allowed; }
+  .danger { padding: 9px 14px; border-radius: 9px; border: 1px solid var(--danger); background: var(--surface); color: var(--danger); font-weight: 600; }
+  .danger.on { background: var(--danger); color: #fff; }
+  .status { font-size: 13px; color: var(--text-3); }
+  .status.ok { color: var(--ok); font-weight: 600; }
+  footer { padding: 0 20px 24px; color: var(--text-3); font-size: 12px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Incident Messenger <small>IC console · prototype v0.1</small></div>
+  <div class="who">Incident commander on duty · fake data only</div>
+</header>
+
+<nav class="rail" id="rail"></nav>
+<div class="banner" id="banner">All automated sending is paused. The auto-acknowledge rule answers new tickets with the status-page link only.</div>
+
+<main>
+  <section class="panel">
+    <div class="tabs">
+      <button id="tab-cluster" class="on">Ticket cluster <span class="count" id="n-cluster"></span></button>
+      <button id="tab-person">Needs a person <span class="count" id="n-person"></span></button>
+    </div>
+    <div class="rule" id="rule"></div>
+    <ul class="tickets" id="list"></ul>
+    <div class="more" id="more"></div>
+  </section>
+
+  <section class="right">
+    <div class="panel">
+      <div class="block">
+        <div class="row"><h2>Status update draft</h2><span class="lvl">L2 · you approve</span></div>
+        <textarea id="draft" spellcheck="false"></textarea>
+        <div class="guard" id="guard"></div>
+      </div>
+      <div class="block">
+        <div class="row"><h2>First reply to the cluster</h2><span class="lvl">L2 now · L4 for follow-ups</span></div>
+        <div class="reply" id="reply"></div>
+        <p class="meta" id="recip"></p>
+      </div>
+      <div class="actions">
+        <button class="primary" id="approve">Approve and send</button>
+        <button class="danger" id="pause">Pause all sending</button>
+        <span class="status" id="status"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Rules shown here: attach is automatic (L4) at confidence 0.80 or more, a person decides below. Nothing public leaves before the IC approves. Follow-ups use approved facts only. Never a cause, an ETA, a data-loss statement or another customer's name without approval.</footer>
+
+<script>
+const STATUS_LINK = 'status.telemetra.example/incidents'
+const BLOCKED = [
+  { re: /\bkafka\b/i, why: 'names a cause (Kafka) that is not confirmed' },
+  { re: /\bdeploy(ment)?\b/i, why: 'names a cause (deploy) that is not confirmed' },
+  { re: /\b(caused by|root cause|due to)\b/i, why: 'states a cause' },
+  { re: /\bwithin \d+\s*(min|minutes|hours?)\b|\bfixed (in|by)\b|\beta\b/i, why: 'gives an ETA for the fix' },
+  { re: /\bno data (was |is )?lost\b|\bno data loss\b/i, why: 'makes a data-loss statement' },
+  { re: /\b(globex|initech|umbrella)\b/i, why: 'names another customer' }
+]
+
+const incidents = {
+  'INC-01': {
+    title: 'INC-01 · EU metrics ingestion degraded', sub: 'Opened 09:38 UTC · ingest 5xx above 5 %',
+    draft: 'Since 09:38 UTC, metrics ingestion in our EU region is degraded, caused by a Kafka deploy this morning. Dashboards of EU accounts may show missing or delayed data. We expect a fix within 30 minutes.',
+    facts: 'metrics ingestion in our EU region is degraded since 09:38 UTC. Dashboards may show missing or delayed data. Next update by 10:30 UTC.',
+    hidden: 404,
+    cluster: [
+      ['T-4801', 'Our dashboards stopped updating around 9:40. Is something wrong on your side?', .96],
+      ['T-4805', 'Getting HTTP 502 from the ingest endpoint since about 09:40, retries keep failing.', .94],
+      ['T-4812', 'No new data in our Grafana panels for 25 min. Our collectors look healthy.', .92],
+      ['T-4827', 'Ingest API timing out from our Frankfurt cluster.', .90],
+      ['T-4810', 'is telemetra down??', .88],
+      ['T-4823', 'We were charged twice for October (invoice INV-2291). Please refund one of the charges.', .81],
+      ['T-4833', 'Metrics from our EU agents show a gap since 09:40, anything known?', .86],
+      ['T-4836', 'Seeing empty charts on the EU workspace, US one is fine.', .89]
+    ],
+    person: [
+      ['T-4830', 'URGENT: we posted our API key [redacted] in a public dashboard link. Please revoke it now.', 'Security, not this incident', null],
+      ['T-4815', 'Will we lose the metrics from this outage? We need them for a compliance report.', 'Data loss question', .93],
+      ['T-4817', 'When will this be fixed? We need an ETA for our own customers.', 'ETA question', .91],
+      ['T-4826', 'Third outage this quarter. Per our contract we expect SLA credits.', 'SLA credits', .87],
+      ['T-4819', 'Unsere Dashboards zeigen seit 9:40 keine Daten mehr. Ist bei euch etwas kaputt?', 'Not English', .90],
+      ['T-4821', 'Our EU dashboards are empty and our US alerts are late. Same problem?', 'Matches INC-01 and INC-02, never merged', .62]
+    ]
+  },
+  'INC-02': {
+    title: 'INC-02 · US alert notifications delayed', sub: 'Opened 09:55 UTC · alert queue lag',
+    draft: 'Since 09:50 UTC, alert notifications for US accounts are delayed by up to 15 minutes. Metrics ingestion and dashboards are not affected. Next update by 10:45 UTC.',
+    facts: 'alert notifications for US accounts are delayed by up to 15 minutes since 09:50 UTC. Metrics and dashboards are not affected. Next update by 10:45 UTC.',
+    hidden: 61,
+    cluster: [
+      ['T-4840', 'Alerts are arriving 10 to 15 minutes late. PagerDuty paged us long after the threshold.', .95],
+      ['T-4842', 'Metrics look fine but our alert emails come in late. Known issue?', .93],
+      ['T-4845', 'Slack alert integration delayed for us (us-east).', .90]
+    ],
+    person: [
+      ['T-4848', 'We see a gap in our dashboards since this morning. Related?', 'US account, dashboards not affected by INC-02', .55]
+    ]
+  }
+}
+
+let current = 'INC-01'
+let tab = 'cluster'
+let paused = false
+const approved = {}
+
+const $ = id => document.getElementById(id)
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+const confClass = c => c >= .85 ? '' : c >= .8 ? 'mid' : 'low'
+
+function renderRail() {
+  $('rail').innerHTML = Object.entries(incidents).map(([id, inc]) =>
+    `<button class="inc ${id === current ? 'active' : ''}" data-id="${id}">
+      <b><span class="dot"></span>${esc(inc.title)}</b><span>${esc(inc.sub)}${approved[id] ? ' · update approved' : ''}</span>
+    </button>`).join('') + '<span class="note">Two incidents open. They are never merged.</span>'
+  document.querySelectorAll('.inc').forEach(b => b.onclick = () => { current = b.dataset.id; tab = 'cluster'; render() })
+}
+
+function renderList() {
+  const inc = incidents[current]
+  $('n-cluster').textContent = inc.cluster.length + inc.hidden
+  $('n-person').textContent = inc.person.length
+  $('tab-cluster').classList.toggle('on', tab === 'cluster')
+  $('tab-person').classList.toggle('on', tab === 'person')
+  if (tab === 'cluster') {
+    $('rule').textContent = 'Attached automatically (L4): confidence 0.80 or more. Remove anything that does not belong.'
+    $('list').innerHTML = inc.cluster.map(([id, txt, c]) =>
+      `<li class="tk"><span class="id">${id}</span><span class="txt">${esc(txt)}</span>
+        <span class="side"><span class="conf ${confClass(c)}">${c.toFixed(2)}</span>
+        <button class="ghost" data-remove="${id}">Not this incident</button></span></li>`).join('')
+    $('more').textContent = `+ ${inc.hidden} more tickets with confidence above 0.90`
+  } else {
+    $('rule').textContent = 'A person answers these (L1). The agent attaches a summary but sends nothing.'
+    $('list').innerHTML = inc.person.map(([id, txt, why, c]) =>
+      `<li class="tk"><span class="id">${id}</span><span class="txt">${esc(txt)}</span>
+        <span class="side">${c === null ? '' : `<span class="conf ${confClass(c)}">${c.toFixed(2)}</span>`}</span>
+        <span class="why">${esc(why)}</span></li>`).join('')
+    $('more').textContent = ''
+  }
+  document.querySelectorAll('[data-remove]').forEach(b => b.onclick = () => {
+    const i = inc.cluster.findIndex(t => t[0] === b.dataset.remove)
+    const [t] = inc.cluster.splice(i, 1)
+    inc.person.unshift([t[0], t[1], 'Removed from the cluster by the IC', t[2]])
+    renderList(); renderRight()
+  })
+}
+
+function check(text) {
+  return BLOCKED.filter(b => b.re.test(text)).map(b => {
+    const m = text.match(b.re)
+    return `"${m[0]}" ${b.why}`
+  })
+}
+
+function renderRight() {
+  const inc = incidents[current]
+  const ta = $('draft')
+  if (ta.dataset.inc !== current) { ta.value = inc.draft; ta.dataset.inc = current }
+  const hits = check(ta.value)
+  const g = $('guard')
+  if (hits.length) {
+    g.className = 'guard block'
+    g.innerHTML = `<b>Approval blocked.</b> The draft:<ul>${hits.map(h => `<li>${esc(h)}</li>`).join('')}</ul>`
+  } else {
+    g.className = 'guard pass'
+    g.innerHTML = '<b>Guardrail check passed.</b> No cause, ETA, data-loss statement or customer name.'
+  }
+  $('reply').innerHTML = `Hello,\n\nThank you for your message. We are aware of an issue: ${esc(inc.facts)}\n\nLive updates: ${STATUS_LINK}\n\n<span class="disc">Automated update from Telemetra's incident assistant, based on facts approved by our incident team. Reply "human" to reach an engineer.</span>`
+  const n = inc.cluster.length + inc.hidden
+  $('recip').innerHTML = `Goes to <b>${n} tickets</b> in this cluster. Tickets in "Needs a person" get nothing automated.`
+  const btn = $('approve')
+  btn.disabled = hits.length > 0 || !!approved[current]
+  btn.textContent = approved[current] ? 'Approved' : paused ? 'Approve (sending paused)' : 'Approve and send'
+  const st = $('status')
+  if (approved[current]) { st.className = 'status ok'; st.textContent = approved[current] }
+  else if (hits.length) { st.className = 'status'; st.textContent = 'Fix the draft to approve.' }
+  else { st.className = 'status'; st.textContent = 'Nothing is published until you approve.' }
+  $('pause').classList.toggle('on', paused)
+  $('pause').textContent = paused ? 'Resume sending' : 'Pause all sending'
+  $('banner').classList.toggle('on', paused)
+}
+
+function render() { renderRail(); renderList(); renderRight() }
+
+$('tab-cluster').onclick = () => { tab = 'cluster'; renderList() }
+$('tab-person').onclick = () => { tab = 'person'; renderList() }
+$('draft').oninput = renderRight
+$('approve').onclick = () => {
+  const inc = incidents[current]
+  const n = inc.cluster.length + inc.hidden
+  approved[current] = paused
+    ? 'Approved. Sending is paused, so nothing has gone out yet.'
+    : `Approved. Status page updated and first reply sent to ${n} tickets. Follow-ups now run at L4.`
+  render()
+}
+$('pause').onclick = () => { paused = !paused; renderRight() }
+
+render()
+</script>
+</body>
+</html>
