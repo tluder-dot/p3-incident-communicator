@@ -29,3 +29,9 @@ facts. Pause falls back to the auto-acknowledge reply with the status-page link.
 - **Usability task (for `03_user_research.md`):** fix the draft so it can be approved, find the ticket that should not be in the cluster, approve. (Planted traps: the draft states an unconfirmed Kafka cause and a 30-minute ETA; ticket T-4823 is a billing question attached at 0.81.)
 - **Screenshot:** ![IC console v0.1: the draft is blocked by the planted Kafka cause and 30-minute ETA](prototype/ic_console.png)
 - **Source file:** `prototype/ic_console.html` was rebuilt on 8 November 2026 from the prompt above (same screen, same planted traps, same scenario as `evals/eval_set_v0.csv`), because the original artifact source had not been committed. Open it in any browser, no install needed.
+
+## v1 — the working prototype (Session 4, 17 November 2026)
+- **Where:** `/prototype` in this repo — the four steps of `spec.md` (router and attach, routing rule, drafter, guardrail checker) and the IC console in Streamlit. Run `pip install -r prototype/requirements.txt`, then `streamlit run prototype/app.py` (details in `prototype/README.md`).
+- **What changed since v0.1 (the clickable mock above):** it runs on data — ten demo inputs and four synthetic incidents — and carries the v0.2 changes the simulated users asked for: blocked words highlighted inside the IC's draft with Approve disabled until they are edited, the account's region on every ticket, a flag when a ticket's words do not match the incident component, the recipient count of the cluster, and the switch ⏻ in the sidebar.
+- **Not done yet:** a phone-first approval screen (brief v2, note 7). Streamlit is the demo surface; the production surface would be a FastAPI service behind the incident tool (`06_07_experiments_operations.md` §3).
+- **Its number:** `evals/report_v0.md`.
