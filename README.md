@@ -29,6 +29,13 @@
 | 7 | Resolution notice and closing of clustered tickets | L2 for the notice · L4 for sending it to the cluster | Same pattern as steps 3 to 5 |
 
 - **One thing it must never do:** publish or send a statement about the cause, the ETA, the scope of impact or data loss that the incident commander has not approved.
+- **Since Session 3** (`03_product_brief.md`): proactive messages to accounts that have not written are out of scope (WON'T), and customer replies are templates filled with the approved facts — no model writes to a customer.
+
+## Where we stand (17 November 2026)
+- **The prototype** (`/prototype`, four steps by four authors): on 50 hand-labelled cases, **15 of the 16 status tickets that should get an automatic reply got one two graders would send unchanged** (94 %; 84 % re-weighted to real traffic) — criterion 63 %. Attach precision 0.94, zero unapproved statements, zero merged incidents (`evals/report_v0.md`).
+- **Not releasable yet:** two replies went where a person had to answer (six on the 100-case set) and none of the three drafts for the incident commander was publishable unchanged. Every miss is a line of `spec.md` v2.
+- **The decision:** NO-GO this year (`02_investment_memo.md`) — reply quality is not the bottleneck, incident volume is; the case reopens at about 2× today's volume, and then `06_07_experiments_operations.md` says how we would prove it.
+- **Run it:** `pip install -r prototype/requirements.txt` · `python prototype/evals.py evals/eval_set_v1.csv` · `streamlit run prototype/app.py` (details in `prototype/README.md`).
 
 ## Repository structure
 One numbered file per session. Every member authors commits in at least four of the numbered files.
@@ -36,19 +43,19 @@ One numbered file per session. Every member authors commits in at least four of 
 | File | Session | Status |
 |---|---|---|
 | `00_pitch.md` | before S3, only if you bring your own idea | not needed (we start from P3) |
-| `01_problem_statement.md` | S1 and S2, Assignment 1 | done |
-| `governance.md` | created for Assignment 1, one line added every session | S1, S2 and S3 done |
+| `01_problem_statement.md` | S1 and S2, Assignment 1 | done · where the hypotheses stand after S4–S5 (§6) |
+| `governance.md` | created for Assignment 1, one line added every session | Sessions 1 to 7 done (checkpoints and switch, harm threshold, experiments, trace) |
 | `02_sizing.xlsx` | S2, Assignment 2 | done |
-| `02_investment_memo.md` | S2, Assignment 2 | done |
-| `03_product_brief.md` | S3 | v2 done (after simulated user research) |
-| `03_ai_lean_canvas.md`, `03_user_research.md`, `03_prototype_link.md` | S3, Assignment 3 | canvas done · simulated interviews, real ones before S6 · prototype v0.1 |
-| `04_architecture.md` | S4 | |
-| `05_metrics.md` | S5 | |
-| `06_ab_protocol.md` | S6 | |
-| `07_operations.md` | S7 | |
-| `08_launch_memo.md` | S8 | |
-| `spec.md`, `product_brief.md` | skeleton in S3, final in S8 | spec skeleton v0 done |
-| `/prototype`, `/evals` | from S4 | `prototype/ic_console.html` + screenshot · `evals/eval_set_v0.csv` (20 cases) + `evals/README_eval_set.md` |
+| `02_investment_memo.md` | S2, Assignment 2 | done · §6 after the prototype: still NO-GO |
+| `03_product_brief.md` | S3 | v2 + §11 what the eval changed |
+| `03_ai_lean_canvas.md`, `03_user_research.md`, `03_prototype_link.md` | S3, Assignment 3 | canvas with the measured numbers · interviews simulated (agreed with the lecturer, 6 Nov) · clickable mock v0.1 + working prototype v1 |
+| `04_architecture.md` | S4, Assignment 4 | done |
+| `05_metrics.md` | S5, Assignment 5 | done |
+| `06_07_experiments_operations.md` | S6 + S7, Assignment 6 + 7 (one file instead of `06_ab_protocol.md` and `07_operations.md`) | done |
+| `08_launch_memo.md` | S8 | after Session 8 (20 November) |
+| `spec.md`, `product_brief.md` | skeleton in S3, final in S8 | `spec.md` v2 done (every eval miss is a line) · final brief after Session 8 |
+| `/prototype` | from S4, Assignment 4 | four steps (router + attach, routing rule, drafter, guardrail checker), one commit per step by four authors · IC console · rollback drill |
+| `/evals` | from S4, Assignments 4 and 5 | `eval_set_v0.csv` (50) and `eval_set_v1.csv` (100), labelled by hand before the run · `report_v0.md` · grading guideline, two graders, LLM judge · red-team rows · switch test log |
 
 ## Rules
 - Commit with your own Git account: the individual question at the oral is about a commit you signed.
