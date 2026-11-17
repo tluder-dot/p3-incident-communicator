@@ -12,7 +12,7 @@
 | 5. Channels — where it lives | Inside the incident tool (IC) and the ticketing inbox (support); customers get a normal ticket reply | 03 brief §6 |
 | 6. Value — per year | Base +€1.8k · EV −€5.5k vs do-nothing €15k and hurdle €50k → **NO-GO this year**; reopens at ~2× incident volume | 02 |
 | 7. Cost structure | Integration €23k/yr · evaluation €15k · supervision €17.5k · monitoring €15k · re-evaluation €9k · tokens €0.3k · cost of error €3.7k (fixed lines = 95 %) | 02 |
-| 8. Key metric | ≥ 63 % of status tickets correctly attached and sendable as is, with zero unapproved statements, zero cross-tenant mentions, zero merged incidents | 03 brief §7 |
+| 8. Key metric | ≥ 63 % of status tickets correctly attached and sendable as is, with zero unapproved statements, zero cross-tenant mentions, zero merged incidents · **measured 17 Nov 2026: 15 / 33 = 45 % (15 / 16 = 94 % of the answerable ones), two floor misses** | 03 brief §7 · evals/report_v0.md |
 | 9. Unfair advantage | Our own account → component/region map and incident history — no vendor has them | 02 (build / buy) |
 
 ## The five AI blocks
