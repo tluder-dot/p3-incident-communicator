@@ -40,12 +40,50 @@
 
 ## §3 Watch the four layers — monitoring and drift
 
-_To be completed._
+| Layer | Metric (from `05_metrics.md`) | Threshold that pages someone | Clock | Owner | Tool — startup | Tool — large company |
+|---|---|---|---|---|---|---|
+| Infrastructure | time from IC approval to reply sent · errors of the ticketing, status-page and incident-tool APIs | a reply not sent 1 minute after approval (the ≤ 10-minute promise needs it) · any API failing for 10 minutes → switch to OFF | real time | on-call engineer (VP Engineering's team) | Cloud Run metrics · Sentry · Grafana Cloud | Cloud Monitoring → Datadog |
+| Model quality | attach precision and sendable share on the weekly 5 % human sample vs the judge | precision < 0.90 (H1 floor) · human–judge agreement below the rate measured in `evals/README.md` | after every incident + weekly | support lead | Langfuse (EU cloud) | LangSmith or Langfuse self-hosted |
+| Product & guardrails | replies sent on person-only tickets · unapproved statements · other-customer mentions · wrong-reply rate by segment · time to first human answer | any floor miss → page the IC at once · wrong-reply rate > 6 % in a segment (harm threshold) | during the incident, then daily | IC on duty → Head of Support | SQL table + Metabase | warehouse + Power BI |
+| Business | tickets per incident · minutes to first update · cost of incident tickets · churn of incident-hit accounts | first update > 10 min on two incidents in a row · churn above 8.5 % | per incident · monthly · yearly | Head of Support + CFO | weekly query + shared sheet | finance BI dashboard |
+| Paging | — | — | — | — | Slack webhook to the incident channel | PagerDuty (already the on-call tool) |
+
+**Where our FastAPI runs:** today the four steps run inside the Streamlit console on our laptop (`prototype/app.py` — the demo surface). For a pilot: the same four steps behind a FastAPI service (`/reply`, `/draft`, `/health`) on **Google Cloud Run in europe-west1** — EU processing as `governance.md` promises, pay per request, the same Docker image from staging to production, rollback = the previous image. Secrets in the cloud secret store and `.env` locally, never in Git.
+
+**Release path and gates:** **dev** (every commit: `python prototype/evals.py` — the floors must read 0 on the frozen set) → **staging** (every change of a rule, template, prompt, model version or the incident → component map: `eval_set_v1` + the judge; shadow mode on the next real incident; the rollback drill run by the people who press the switch) → **production region by region** (the stepped wedge of §1), each step gated by the decision rule of §2.
+
+**First drift expected: knowledge drift** — component names, regions and products change (the freshness answer of the Session 3 audit). A new component or region that is not in an incident's signature makes tickets go unattached or, worse, attach by a stray word (the P3-08 miss, `spec.md` M3). **Signal:** the share of incident tickets with "no open incident matches" doubles from one incident to the next, and the attach-confidence histogram moves left. **What we re-run:** the frozen `evals/eval_set_v1.csv` on every change of the incident → component map, a template, a rule or the model version.
 
 ## §4 Contain the incident — trace, classes, rollback
 
-_To be completed._
+**Trace — one OpenTelemetry trace per ticket, one span per step of `04_architecture.md`:** `request` (ticket id · received at · segment: region, plan, language · versions: rules, template, facts version, model) → `classify` (category · confidence) → `attach` (candidates · scores · matched words · decision) → `route` (decision · reason) → `draft` (template id and facts version; for IC drafts: tokens · latency) → `guardrail` (pass / block · reason) → `human_decision` (IC approved / edited · "Not this incident" · reply "human") → `send` (channel · time). Stored in Langfuse, EU region.
+
+**Our one-page dashboard — five panels:** stat tiles with thresholds (floor misses today, attach precision on the sample, minutes to first update — am I paged?) · line over the incident (tickets per minute: auto-answered vs human queue — is the queue still growing?) · histogram of attach confidence, this incident vs the last (drift) · bars by segment (wrong-reply rate and time to first human answer, EU vs US, self-serve vs enterprise — Simpson and fairness) · worst-cases table ("Not this incident" clicks, reopens, blocks — what to fix on Monday). Built as one Streamlit tab next to the IC console.
+
+| Class | Example on our agent | Action |
+|---|---|---|
+| Caught | the guardrail blocks "probably the Kafka deploy" in the IC's draft; a support engineer clicks "Not this incident" before the follow-up goes out | count it; weekly review; a spec line if it repeats |
+| Sent wrong | a customer gets the v1 facts after v2 was approved; a reply goes to an account whose region was not affected (P3-08) | correcting follow-up with the right facts, apology; a spec line (M3); counted in the wrong-reply rate |
+| Harmful (above the harm threshold) | an unapproved cause or "no data was lost" is sent; another customer is named; a security report is auto-closed with the cluster | switch to SUGGEST_ONLY now (OFF if it repeats) · incident report · the DPO the same day if a customer was named |
+| Outage | the ticketing API is down; the pipeline crashes during an incident | automatic fallback: OFF → the auto-acknowledge rule answers, people handle the queue |
+
+**Rollback plan**
+
+| Field | Ours |
+|---|---|
+| 1 · Trigger | any harmful-class incident · wrong-reply rate > 6 % in a segment · attach precision < 0.90 on a live incident's sample · an API down for 10 minutes |
+| 2 · Who decides (day / night) | by day the IC on duty or the support lead on duty; at night the on-call support lead — who informs the Head of Support (the owner) the same morning |
+| 3 · The action | first SUGGEST_ONLY (drafts still shown, nothing sendable — L1); OFF if the harm repeats (humans only, the auto-acknowledge rule answers); redeploy the previous image if a release caused it |
+| 4 · Time to execute | one click in the IC console, under 2 minutes — the drill takes 0.13 s of machine time |
+| 5 · What people see | support: "automatic replies paused — the cluster is in your queue"; the IC: drafts still shown; customers: the auto-acknowledge reply with the status-page link; the status page is unchanged |
+| 6 · Last tested | 17 November 2026 (16:47 UTC, by Till Lüder, all three positions passed) — on the prototype, our laptop being our staging; `evals/rollback_tests.csv`. Next test: before every release and every quarter |
 
 ## §5 Own the system — the five owners
 
-_To be completed._
+| Decision | Owner (role) | Written where |
+|---|---|---|
+| Run an experiment on real customers | the **Head of Support** signs the protocol; the **VP Engineering** co-signs (it changes the IC's job); the **DPO** reads it before the first unit | this file §1–§2 · `governance.md` |
+| Read the weekly numbers and act | the **Head of Support**, with the support lead — every Monday and after every incident | §3 |
+| Press the switch (day / night) | the **IC on duty** or the **support lead on duty** by day; the **on-call support lead** at night | §4 · `governance.md` |
+| Approve a release (rule, template, prompt, model, incident map) | the **Head of Support** with the **VP Engineering**, with the eval-set and judge re-run attached | `evals/README.md` |
+| Keep the trace; answer a customer or a regulator | **engineering** (VP Engineering) keeps the trace; **Legal and the DPO** answer | `governance.md` |
