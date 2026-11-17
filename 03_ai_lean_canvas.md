@@ -19,7 +19,7 @@
 | Block | Our answer | Comes from |
 |---|---|---|
 | 10. Data — sources, rights, gaps | Tickets, monitoring, incident channel, status page, account map · contract + legitimate interest, eval reuse to clear with DPO · gaps: non-English, overlapping incidents, enterprise | governance.md · S3 |
-| 11. Model — rung per part | Rules (trigger, reply template, guardrails) · classical ML (category) · embeddings (attach) · LLM (status draft only) → hybrid | 03 brief §5 |
-| 12. Evaluation | `evals/eval_set_v0.csv`: 20 invented cases now, 200 replayed incident tickets by S5, two graders | evals/ |
-| 13. Human in the loop | L4 trigger and confident attach · L1 below threshold · L2 IC approves update + first reply · L4 follow-ups on approved facts · person only for cause/ETA/data loss/credits · reply "human" or one-click pause = way back | 03 brief §2 |
+| 11. Model — rung per part | Rules (trigger, reply template, guardrails) · classical ML (category) · rules (attach — embeddings only if the eval says the rules fail) · LLM (status draft only) → hybrid | 03 brief §5 |
+| 12. Evaluation | `evals/eval_set_v0.csv` 50 cases → `eval_set_v1.csv` 100, labelled by hand before the run · two graders agree on 30 of 30 verdicts, the judge with them 77 % → 100 % after one fix · 200 replayed incident tickets once the DPO clears the reuse | evals/ · 05 §5 |
+| 13. Human in the loop | L4 trigger and confident attach · L1 below threshold · L2 IC approves update + first reply · L4 follow-ups on approved facts · person only for cause/ETA/data loss/credits · reply "human" or one-click pause = way back · switch ⏻ ON / SUGGEST_ONLY / OFF, tested 17 Nov 2026 | 03 brief §2 · 04 §6 |
 | 14. Risks & governance | Never state unapproved cause/ETA/impact/data loss; never name another customer · rollback: any unapproved statement or precision < 90 % → pause, fall back to auto-acknowledge | governance.md |
