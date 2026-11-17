@@ -1,0 +1,241 @@
+id,text,category,language,origin
+T0001,We'd like to downgrade from Business to Team starting next month.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0002,How do I add a new team member and give them read-only access?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0003,"Les recherches dans les logs n'aboutissent jamais, il y a une panne chez Telemetra ?",status,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0004,"Our agents only retry for 2 hours. If the outage lasts longer, will we lose that data?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0005,"Is Telemetra down?? Can't load a single dashboard, just the grey spinner forever.",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0006,"Los dashboards no muestran datos desde las 9:15, ¿tenéis una caída?",status,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0007,is it just me or is Telemetra super broken right now? nothing loads,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0008,"Hey, any update on when this will be fixed? Status page hasn't changed in 45 min.",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0009,"The password reset email never arrives, already checked spam.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0010,Las consultas de logs se quedan colgadas y dan timeout. ¿Está caído Telemetra?,status,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0011,Est-ce qu'on a raté des alertes pendant l'incident ? On doit vérifier avec l'équipe d'astreinte.,impact,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0012,is the US region having problems? traces are arriving with a huge delay,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0013,Can you confirm that no alerts were lost for our account? We had a near miss in prod.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0014,Feature idea: a mobile app for acknowledging alerts would be really useful.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0015,Is the EU region impacted or just US? We only have workspaces in EU.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0016,"We're migrating from our self-hosted setup, is there a guide for importing old dashboards?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0017,"Alerts that should have triggered 10 min ago still haven't, is alert evaluation lagging on your side?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0018,Logs show up in the explorer 20+ min late. Is ingestion lagging on your side?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0019,"Bonjour, comment ajouter un nouvel utilisateur avec des droits en lecture seule ?",unrelated,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0020,"Todos los checks sintéticos fallan a la vez, ¿tenéis problemas en la plataforma?",status,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0021,We need your VAT ID for our vendor registration form.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0022,When can we expect a full RCA? Our own customers are asking us.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0023,Is our workspace one of the impacted ones? Our dashboards look fine but another team sees gaps.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0024,"Our agents were buffering during the incident, will that data show up later or is it lost?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0025,"Les alertes arrivent avec énormément de retard, est-ce que la plateforme a un problème ?",status,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0026,Are the logs we sent during the outage stored somewhere or are they gone for good?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0027,everything is slow and half the panels error out. what's happening on your end?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0028,We're seeing 'too many open connections' errors from your query API. Is it overloaded?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0029,"La API nos devuelve error 500 en todas las peticiones, ¿es problema vuestro?",status,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0030,Are the traces from this morning going to be recovered? We need them for a debugging session.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0031,"metric graphs flatlined at 13:52 for every host, did ingestion stop on your side?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0032,Alert history page is empty and we know alerts should've fired. Is the alerting backend having issues?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0033,Are our synthetic checks still running in the background even though the UI is down?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0034,traces from our services stopped showing up around 21:40 UTC. Are you guys having an outage?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0035,¿Cuándo estará solucionado? Necesitamos al menos una estimación.,cause_credit,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0036,We'd like compensation for the engineering hours we lost during this incident.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0037,Is Telemetra having issues in the US? Dashboards load but every widget is blank.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0038,Were any of our alert rules or dashboards deleted or reset by this incident?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0039,"No puedo iniciar sesión, me dice que la contraseña es incorrecta aunque la acabo de cambiar.",unrelated,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0040,Are customers in the US region affected or are we safe there?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0041,Can you escalate our SLA credit request to an account manager?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0042,Do we need to resend the logs from 10:00-11:00 or will your side replay them?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0043,Is there an incident on the metrics pipeline? We see 'write failed: 500' in the agent logs.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0044,Is anyone else seeing empty metrics in the US region? we've got nothing since 6:30 pm ET,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0045,Our synthetic SSL checks all reported failures at exactly 02:00 UTC. Is the check service broken?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0046,Feature request: would be great to have dark mode in the dashboard editor.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0047,"L'API renvoie des erreurs 502 depuis ce matin, ça vient de chez vous ?",status,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0048,"Hi, we'd like a quote for 200 additional hosts.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0049,Reporting a potential security issue: the password reset link includes the username in the URL.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0050,How can I set up a synthetic check that runs every 30 seconds instead of every minute?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0051,"Alert emails stopped coming in completely this morning, is notification delivery down?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0052,"log ingestion looks stuck, newest log line is 25 minutes old. Problem on your end?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0053,Will we see duplicates once the backlog is replayed? Worried about double counting in our metrics.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0054,"We want to cancel our subscription at the end of the billing period, what's the process?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0055,Is our data safe? I need to tell our CISO whether anything was corrupted or exposed.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0056,"Metrics are coming in super delayed, like 15-20 min lag. is ingestion degraded right now?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0057,for about 30 min the alert manager UI says 'unable to load rules'. is it down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0058,Is there an ongoing incident? The UI keeps throwing 'something went wrong' on every page.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0059,Status page says all green but our log queries fail with 504. what's actually going on?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0060,Getting gRPC UNAVAILABLE errors from the trace intake endpoint. Is it down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0061,Could you add an Italian language option for the UI?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0062,Getting 'ingest rejected: service overloaded' from your API. are you under load or down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0063,"Did the incident affect data integrity, i.e. could we now have wrong values in our dashboards?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0064,"API returning 503 Service Unavailable on the metrics endpoint, pls confirm if this is on your side",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0065,Die API liefert bei uns nur noch 503-Fehler. Ist Telemetra down?,status,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0066,"The timezone selector in user settings doesn't save, it keeps going back to UTC.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0067,"The CSV export from the log explorer drops the last column, is that a known bug?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0068,"We're onboarding a new team next month, do you offer a training session?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0069,¿Podéis añadir la opción de exportar dashboards en PDF? Sería muy útil.,unrelated,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0070,Is there a problem with log ingestion? Our forwarders report HTTP 503 and are buffering.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0071,will synthetic check results from the downtime count as failures in our uptime reports?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0072,"Metrics for our US hosts stopped at 04:12 UTC, EU hosts look fine. Problem in your US region?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0073,"Please send us a postmortem once this is over, our SRE team wants the details.",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0074,How do I mute alerts during a planned maintenance window next Saturday?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0075,"I'd like a refund for this month, the platform has been unusable for most of the day.",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0076,Are our API tokens or credentials affected by this incident in any way?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0077,"We're on the US-2 cluster, are we impacted?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0078,Our auditors are asking if monitoring data was lost today. Was ours?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0079,Where can I find your SOC 2 report? Our procurement team is asking for it.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0080,Who do we contact about the SLA breach? Our contract says we're owed credits after 4 hours.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0081,Nos données sont-elles en sécurité ? Notre RSSI veut savoir si quelque chose a été perdu.,impact,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0082,Log queries return partial results with a 'shard unavailable' warning. Is the log backend degraded?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0083,"Please add alert routing based on tags, it would save us a ton of duplicate rules.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0084,How do we claim the service credit for today's downtime under our enterprise contract?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0085,"Getting 502 Bad Gateway from the query API in EU for the last 10 min, is Telemetra down?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0086,"Will the gap in our dashboards between 14:00 and 15:30 be filled in, or do we have a permanent hole?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0087,We see gaps in all dashboards from 11:20 onwards. Is this a Telemetra problem or ours?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0088,trace ingestion returning 503 to our collectors since 07:15 UTC. is it you?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0089,Is there any risk that our logs ended up in another customer's account?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0090,Seit 14:10 Uhr zeigen alle Dashboards keine Daten mehr. Habt ihr gerade eine Störung?,status,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0091,"Can we get a written postmortem with timeline, root cause and remediation steps?",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0092,API keys suddenly getting 401s even though nothing changed on our end. Is auth broken on your side?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0093,Did we miss any alerts while your alerting was down? Need to know for our on-call review.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0094,Wir erwarten eine SLA-Gutschrift für diesen Ausfall und einen Post-Mortem-Bericht.,cause_credit,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0095,"Trace explorer is completely empty for the last 30 mins, is there an outage going on?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0096,what caused this?? and what are you doing so it doesn't happen again?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0097,"help, all our graphs say 'no data points' since 03:10 UTC, is it your side?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0098,"seeing massive latency on dashboards and 5xx on the API, are you aware?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0099,Since 16:20 UTC the traces page just times out. Is this a platform issue?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0100,"Will there be a public incident report, and when?",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0101,"Hi, quick one: is the alerting engine down? Test alerts aren't being delivered.",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0102,"Hey team, metrics endpoint gives us 504 Gateway Timeout since ~noon CET. outage?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0103,"Is our EU data still in the EU, or was anything failed over to another region during the incident?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0104,ETA please. We have a launch in 3 hours and need our dashboards.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0105,"hey getting HTTP 500 whenever we run a log query in the US region, known issue?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0106,How long until the fix is deployed? Your status page says the issue has been identified.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0107,¿Vamos a perder las métricas de la última hora o se van a recuperar?,impact,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0108,Was this a cloud provider outage or your own fault? Matters for our risk assessment.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0109,"Our credit card was charged twice this month, can you check?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0110,is there an outage?? our whole team can't run log searches,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0111,What's the difference between the Team and Business plans regarding data retention?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0112,Our agents are logging 'connection refused' when shipping metrics to your EU endpoint. Is your intake down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0113,Log queries that normally take 2s are timing out at 60s. Something going on with the log cluster?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0114,"Our IdP certificate rotates next week, how do we update the SAML config?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0115,Any ETA on the fix? We've been flying blind for 2 hours now.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0116,Request: please let us group alerts by service in the notification email.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0117,Can we change the billing contact on our account to our finance mailbox?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0118,"Hey, the API returns empty arrays for every metric query since 10:45. bug or outage?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0119,Can you check if the metrics API is down? We get 'upstream connect error' on every call.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0120,Is there a timeline for recovery? Need to decide whether to switch on our backup monitoring.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0121,Was this caused by a security issue or just an infrastructure failure? We need to know for our report.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0122,Has any of our metric data been permanently lost? Our compliance team needs a yes or no.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0123,URGENT: public API throwing 500 Internal Server Error on every request. Are you down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0124,"Is historical data affected too, or only data ingested during the outage window?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0125,anyone there?? the whole app is returning 502 for us in EU,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0126,Synthetic API checks from US locations time out but the targets are definitely up. Is your check runner broken?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0127,Can you tell me if our alert notifications were dropped or just delayed during the incident?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0128,API calls timing out after 30s since about 8am PT. Anything happening on your side?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0129,"I lost my 2FA device, how can I reset two-factor authentication?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0130,What's the root cause? We need something to tell our leadership.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0131,Will the backfill include traces too or only metrics?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0132,"Hey, is the public API down in the US? curl just hangs.",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0133,This is the third outage this quarter. We expect SLA credits for this one.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0134,"Alert rules page won't load and we've had zero notifications in the last hour, which is weird. Is alerting broken?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0135,"Is it fixed yet? If not, when?",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0136,"Getting 'query execution failed' on all log searches in EU, is there an incident?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0137,"Hi, the trace waterfall won't load, just 'internal server error'. Are you having an incident?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0138,Wurden unsere Alerts während der Störung zugestellt oder haben wir welche verpasst?,impact,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0139,Wann ist das Problem behoben? Gibt es eine ungefähre Schätzung?,cause_credit,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0140,Necesito una copia de la factura de octubre para contabilidad.,unrelated,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0141,Our CI pipeline pushes custom metrics and suddenly gets 502s back. Is your ingest API having issues?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0142,Quelle est la cause du problème et quand sera-t-il résolu ?,cause_credit,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0143,"SSO login for new users fails with 'user not provisioned', existing users work fine.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0144,Dashboards keep showing data from an hour ago and nothing newer. Is something stuck on your side?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0145,Can someone confirm whether EU dashboards are down? We get a blank page right after login.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0146,How do I write a query that shows p95 latency per endpoint?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0147,"Nous souhaitons résilier notre abonnement à la fin du mois, quelle est la procédure ?",unrelated,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0148,"Dashboards showing no data since around 14:05 UTC, is something wrong on your end?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0149,Will our SLO burn rate numbers be wrong now because of the missing data?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0150,"we had a real prod issue during your outage, did our alerts get delivered or not??",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0151,Can we switch to annual billing instead of monthly?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0152,Is my account on the affected cluster? Trying to figure out if we should fail over our monitoring.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0153,Log explorer shows 'Request failed with status code 500'. Is there a known problem right now?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0154,"Plus aucune trace ne remonte depuis 20 minutes dans la région EU, vous êtes au courant ?",status,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0155,Please share the root cause and the exact impact duration for our internal incident review.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0156,log search just spins and then times out. is it you or is it us?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0157,Why did this happen again? Last month's postmortem promised a fix for exactly this.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0158,When's the RCA coming? Per our contract we need it within 5 business days.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0159,Können Sie mir die Rechnung für September noch einmal schicken? Die ist bei uns untergegangen.,unrelated,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0160,SLO widgets all show 'N/A' since this morning. are you having problems?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0161,Is there a way to export a dashboard as PDF?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0162,Is Telemetra experiencing problems right now? Our API exports keep failing with 500.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0163,Should we expect missed alerts for the whole outage window? Need to warn our on-call team.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0164,When will this be resolved? Our release is blocked until monitoring is back.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0165,Will we lose the metrics from the last hour or will they be backfilled once you're back?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0166,How much credit do we get for a 3-hour outage on the Business plan?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0167,We're getting timeouts on basically every page of the app. Is the whole platform down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0168,"Las alertas llegan con 20 minutos de retraso, ¿hay algún incidente en la región US?",status,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0169,we need to know asap whether our critical payment alerts were delivered between 09:00 and 09:45,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0170,No alerts fired for a test failure we triggered on purpose just now. Is your alerting pipeline down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0171,Do you have an incident ongoing? Trace search returns 500 for any time range.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0172,"Dashboard share links expire too fast, can we configure the expiry?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0173,"Our contract has an SLA clause, please confirm in writing that this downtime counts.",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0174,"Alle Synthetic Checks schlagen gleichzeitig fehl, obwohl unsere Seite erreichbar ist. Ist bei euch was kaputt?",status,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0175,Do you have a discount for nonprofits or student teams?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0176,"Est-ce qu'on va perdre les logs envoyés pendant la panne, ou seront-ils récupérés ?",impact,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0177,How do I create a dashboard variable that filters by environment?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0178,"I can't log in with SSO, it keeps redirecting me back to the login page.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0179,Is the metrics backend down? Our health dashboard went blank at 18:05 CET.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0180,"Our invoice shows the wrong company address, can you correct it?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0181,How do I set up log parsing for JSON logs with nested fields?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0182,"The heatmap panel legend overlaps the chart on small screens, minor UI bug.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0183,"Did synthetic checks keep running during the outage, or do we have no uptime data for that period?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0184,"We'd like to close our account entirely and have all our data deleted, please advise.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0185,Ist unser Account in der EU-Region überhaupt betroffen?,impact,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0186,¿Cuál fue la causa raíz? Queremos el postmortem y saber si nos corresponde un crédito por el SLA.,cause_credit,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0187,"Found what looks like an XSS issue in the dashboard title field, who do I report it to?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0188,"If logs got rejected with 503 during the outage, are those lost forever?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0189,Getting 'datasource error' on every dashboard panel. Is the backend down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0190,Can I transfer ownership of our org to a colleague who's taking over?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0191,"Our alerting webhooks stopped firing about 40 min ago, is the alerting service down?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0192,Nothing loads in the dashboards since 15:00 UTC. please tell me it's not just us,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0193,"What happened exactly? Was it a bad deploy, a cloud provider problem, or something else?",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0194,"Hi, synthetic check runs from the EU locations are all failing at once, looks like it's on your side, can you confirm?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0195,"Just started a trial, where do I find the agent install instructions?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0196,"Dashboards are super slow, like 2 minutes to render one panel. something going on with the platform?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0197,"Will the data our agents cached locally be ingested once you're up, or do we have to restart them?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0198,"We're getting duplicate alert notifications every few minutes, is alerting acting up on your side?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0199,Is there documentation for pagination in the public API? The docs page is a bit unclear.,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0200,What's the expected time to resolution? Management wants an update every 30 min.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0201,Is the fix rolling out region by region? When will EU be done?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0202,We pay for 99.9% uptime and this clearly breaks it. What compensation are you offering?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0203,How do I rotate API keys without breaking our running integrations?,unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0204,Our on-call says synthetic checks are flapping like crazy across all endpoints. Is it a Telemetra issue?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0205,Gehen unsere Metriken aus der Ausfallzeit verloren oder werden die nachgeladen?,impact,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0206,"our service health board is all red but our services are fine, so I think your metrics are broken? pls check",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0207,"can you give us an ETA, even a rough one? 1 hour? 5 hours?",cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0208,"The API latency is insane right now, 10+ seconds per request. is something broken?",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0209,Is our tracing data for the incident window complete or partial?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0210,¿Nuestra cuenta está afectada por la incidencia? Solo usamos la región EU.,impact,es,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0211,"How do I know which of our services are affected, is it every workspace under our org?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0212,Our finance team asks if this outage will be credited on next month's invoice.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0213,Do we get SLA credits automatically or do we have to file a claim?,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0214,Synthetic checks show 100% failure in EU since 13:30 even though our site is up. Your issue?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0215,Is there an outage in EU? Live tail just shows 'reconnecting...' for 15 minutes now,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0216,Is the query service down? Every metric query fails with 'internal error'.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0217,Will log retention for our account be affected? Some of those logs are needed for audit.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0218,Is our account actually affected by this or is it only some customers?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0219,Nous demandons un avoir au titre du SLA pour cette interruption de service.,cause_credit,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0220,Is only querying broken or is ingestion affected too? Is our data still being stored?,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0221,Synthetic browser checks failing with 'runner unavailable' in all regions. Your problem?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0222,Please confirm this outage will be credited and excluded from our committed-use calculation.,cause_credit,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0223,"Once you recover, will metrics sent with old timestamps be accepted or rejected?",impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0224,The API is flapping between 200 and 503 every few seconds. Are you having trouble on your side?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0225,Getting connection resets from the log intake endpoint every couple of minutes. Is it on your side?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0226,"Nos tableaux de bord sont vides depuis 10h30, est-ce que vous avez un incident en cours ?",status,fr,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0227,"Hi, can you send me a copy of the October invoice? Our accounting needs it.",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0228,"our alerts are coming in like 20 minutes late right now, are you having issues??",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0229,Getting 429 Too Many Requests on the public API even though we're way below our limits. are you degraded?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0230,Were alerts that fired during the incident queued or dropped? Need to know if any were missed.,impact,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0231,Unsere Alerts kommen mit 15 Minuten Verspätung an – gibt es ein Problem in der EU-Region?,status,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0232,Wie richte ich SSO für unser Team ein? Ich finde die Anleitung nicht.,unrelated,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0233,Dashboards render but every value is stuck at zero. Is something broken at Telemetra?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0234,"Die Log-Suche läuft ständig in einen Timeout, liegt das an euch?",status,de,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0235,Dashboard says 'failed to fetch' every time I refresh. Outage?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0236,Is something wrong with your EU region? Metric writes are timing out after 10s.,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0237,We get 'service temporarily unavailable' from the public API in us-east. Is it down?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0238,All our synthetic checks show status unknown since 09:40 CET. Is the platform having problems?,status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0239,"Our error rate against your API spiked to 40%, all 503s coming from you. Confirm pls",status,en,synthetic · generated with Claude for router training · not eval data · no real customer data
+T0240,"We need a DPA signed for our legal team, who can help with that?",unrelated,en,synthetic · generated with Claude for router training · not eval data · no real customer data
