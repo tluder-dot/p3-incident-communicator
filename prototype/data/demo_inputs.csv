@@ -1,0 +1,11 @@
+id,input_type,received_at_utc,input,account_region,plan,language
+D01,ticket,09:57,Our Grafana panels fed by Telemetra have been flat since 09:40 — anything going on?,EU,self-serve,en
+D02,ticket,10:01,ingest endpoint keeps answering 503 for our EU collectors,EU,enterprise,en
+D03,ticket,10:07,Will the metrics we could not send this morning be backfilled?,EU,self-serve,en
+D04,ticket,10:09,We got paged 12 minutes after the threshold was crossed. Is alerting slow today?,US,self-serve,en
+D05,ticket,10:11,Can you update the billing address on our October invoice?,EU,self-serve,en
+D06,ticket,09:44,Dashboards look empty for us since a few minutes,EU,self-serve,en
+D07,ticket,18:31,Log queries in the explorer time out after 60 s since about 18:10,US,enterprise,en
+D08,ticket,18:47,Our Terraform runs fail with 429 Too Many Requests against your API,EU,self-serve,en
+D09,ticket,18:49,API calls return 429 and our log searches time out — same problem?,US,self-serve,en
+D10,incident_channel,18:22,"ALERT us-east log-query p95 41 s (threshold 30 s) since 18:05 · CHANNEL [18:14] eng-3: the index job we shipped at 18:00 is probably the cause · [18:17] eng-4: rolling it back now should be fine in 20 min · [18:19] csm-1: Tyrell Systems is asking for a call · [18:20] IC: impact = US log search slow or timing out, ingestion fine, no confirmed cause yet · next update 19:00",US,n/a,en

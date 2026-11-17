@@ -1,0 +1,11 @@
+account_id,name,domain,region,plan
+A-1001,Globex,globex.example,EU,enterprise
+A-1002,Initech,initech.example,US,self-serve
+A-1003,Umbrella Analytics,umbrella-analytics.example,EU + US,enterprise
+A-1004,Hooli Payments,hooli.example,US,enterprise
+A-1005,Vandelay Logistics,vandelay.example,EU,self-serve
+A-1006,Soylent Foods,soylent.example,EU,self-serve
+A-1007,Wonka Retail,wonka.example,US,self-serve
+A-1008,Tyrell Systems,tyrell.example,US,enterprise
+A-1009,Acme Fintech,acme-fintech.example,EU,enterprise
+A-1010,Stark Mobility,stark.example,EU + US,enterprise
