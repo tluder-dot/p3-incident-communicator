@@ -44,7 +44,34 @@
 | Follow-ups on approved facts only | L4 | Same content as the approved update, matched to the account's region |
 | Cause, ETA, data loss, SLA credits, contracts | Person only (agent attaches a summary) | Legal and contractual (€400–1,500 per error in the sizing) |
 | Resolution notice · sending it to the cluster | L2 · L4 | Same pattern as the update |
-## Session 4 · human-in-the-loop points and the override switch (to come)
-## Session 5 · counter-metrics and the segments we report (to come)
-## Session 6 · protected segments and the harm threshold that stops an experiment (to come)
-## Session 7 · accountable owner, rollback authority, incident path (to come)
+## Session 4 · human-in-the-loop points and the override switch
+
+### Human checkpoints ⊘ (as built in `/prototype`, drawn in `04_architecture.md`)
+| Checkpoint | Kind | Who | Service level |
+|---|---|---|---|
+| First message of each cluster and its recipient count | approval | the IC on duty | within 10 min of the first facts; a reminder after 10 min, never a publication on time-out |
+| Status-update draft (from the alert and the IC's lines) | approval | the IC on duty | before anything is published; blocked words highlighted, Approve disabled until edited |
+| Attach confidence < 0.80, two incidents within 0.10, region not affected, no incident matches | abstention | support engineer (human queue) | normal queue, with the candidates and scores |
+| Impact, data loss, ETA, root cause, SLA credits, contracts — and any non-English ticket | abstention (person only) | support engineer; the IC for facts; the CSM also writes to enterprise accounts | normal queue, agent attaches a summary |
+| Security report or pasted secret · ticket after the incident was resolved | abstention, top of the queue | support lead on duty | first in the queue; the secret is redacted before any model call |
+| Every policy block | abstention | whoever owns the text (IC or support engineer) | the reason is shown, nothing is sent |
+| Sent replies, weekly | sampling | support lead | 5 % of sent replies + every "Not this incident" click, re-graded with `evals/judge_rubric.md` (Session 5) |
+
+### The override switch ⏻
+- **Positions:** ON (as designed) · SUGGEST_ONLY (drafts shown, nothing sendable — L1) · OFF (humans only; the auto-acknowledge rule answers). One click in the IC console sidebar; state in `prototype/switch.json` (created when the switch is first used, not kept in Git).
+- **Owner:** the Head of Support. **Who presses it:** by day the IC or the support lead on duty; at night the on-call support lead. Scope: all clusters at once; one ticket at a time with "Not this incident".
+- **Tested:** 17 November 2026 (16:47 UTC, by Till Lüder, all three positions passed) with `python prototype/rollback_drill.py` on the prototype (our laptop is our staging) — log in `evals/rollback_tests.csv`. Next test: before every release and once a quarter.
+
+### Where the eval data lives, and who can see it
+- `evals/` in this repository, which is **public**: that is why every eval input is synthetic and labelled by hand (`origin` column), and why no real ticket may ever be added here.
+- In production the eval-set would be replays of past incidents: stored in a restricted bucket in the EU, readable by the support lead, the graders and the DPO, kept 12 months (Session 3 freshness rule), and cleared with the DPO first (reusing tickets is a new purpose, GDPR art. 5(1)(b)).
+- The run of 17 November 2026 (`evals/report_v0.md`) found two replies sent on tickets that must go to a person (P3-08 false clustering, P3-34 scope of impact): floor misses — the prototype is not releasable until spec v2 is built (M1–M4, the held-out lines, red row A05) and the floors read 0 on `evals/eval_set_v1.csv`, with at least 2 of 3 IC drafts publishable — the same frozen prototype added four floor misses on its 50 held-out cases.
+## Session 5 · counter-metrics and the segments we report
+- **Counter-metrics** (`05_metrics.md` §3): wrong agent replies ("Not this incident" clicks + replies reopened as wrong) and the churn of accounts that went through an incident (8 % a year today, 02_sizing Inputs G67). Plus the guardrail for the people the agent does not serve: their time to first human answer must not get longer (the Klarna line).
+- **Segments reported, always, never the average alone:** region (EU · US · EU + US) · plan (self-serve · enterprise) · language (English · other) · single vs overlapping incidents. Fairness metric: equal error rates across segments; selection-rate parity by language is broken by design (no automatic reply in other languages) and reported as such.
+- **Harm threshold that stops the rollout:** if the wrong-reply rate in any region or plan exceeds 6 % during an incident — the pessimistic error rate of 02_sizing (Inputs C26) — or if one unapproved statement or other-customer mention is sent, the agent drops to SUGGEST_ONLY — for that segment once the per-segment switch is built (`spec.md`), for all clusters until then — until the cause is explained. **Owner: the Head of Support; reviewed with the DPO every month.**
+
+## Sessions 6 + 7 · experiments, the switch, the trace
+- **Experiments on real users.** Any experiment on real customers is signed by the Head of Support, co-signed by the VP Engineering (it changes the incident commander's job), and read by the DPO before it starts; the decision rule and the harm threshold are written before the first unit (`06_07_experiments_operations.md` §2, written 17 November 2026). Accounts in the not-yet-live region are the control: they get today's service, never less.
+- **The switch.** The IC or the support lead on duty can move the system to SUGGEST_ONLY or OFF by day; the on-call support lead by night; the Head of Support owns it. Last tested 17 November 2026 (16:47 UTC, by Till Lüder, all three positions passed) on the prototype (`evals/rollback_tests.csv`); next test before every release and every quarter.
+- **The trace.** One trace per ticket (classify · attach · route · draft · guardrail · human decision · send), kept 12 months in Langfuse (EU region), redacted of secrets; engineering keeps it, Legal and the DPO answer a customer or a regulator from it. The company answers for what the agent says — "the assistant said it" is no defence (Moffatt v. Air Canada, 2024 BCCRT 149).
