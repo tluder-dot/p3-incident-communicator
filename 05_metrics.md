@@ -3,12 +3,23 @@
 > Session 5 deliverable. Five sections = the five moves of the session. Every number comes from `02_sizing.xlsx` (cell named) or `evals/report_v0.md` and the eval folder it summarises (`evals/README.md`). Declared exceptions: the 40-minute baseline and the ≤ 10-minute target of `01_problem_statement.md`, and the ~2× volume flip of `02_investment_memo.md` §2. Three numbers are thresholds we chose, marked *(chosen)*: the 2× gap for equal error rates, the ± 0.5-point churn band, the 5 % weekly sample.
 
 ## 1 · Place the number — the stack for our agent
+| Level | Question | Our metric | Value today | Produced by | Owner | Clock |
+|---|---|---|---|---|---|---|
+| 5 Business | does it move the P&L? | yearly cost of the incident tickets people handle | €300k a year (02_sizing: Inputs D6 2,500 tickets/month × D9 €10 × 12) — nothing measured with the agent yet | finance data + ticket log | CFO, with the Head of Support | months |
+| 4 Product | does the user get the job done? | share of "is it down?" tickets closed by the agent's reply and **not reopened within 48 h** (the deflection of 02_sizing, Inputs G22) | not yet — needs live incidents (planning number: 70 % of the answerable ones, Inputs D22) | shadow mode, then the stepped-wedge test of `06_07` | Head of Support | per incident, read weekly |
+| 3 Guardrails & responsible AI | does it stay inside the lines — for everyone? | replies sent on tickets that must go to a person · unapproved statements · other-customer mentions · merged incidents | **2** · 0 · 0 · 0 on 50 cases (report_v0) — two floor misses | eval-set + adversarial rows each release, then the trace in production | Head of Support + DPO | days |
+| 2 AI system | does the workflow complete the task? | share of status tickets attached right **and** sendable unchanged for both graders | **15 / 33 = 45 %** — 94 % of the 16 answerable ones, 84 % re-weighted to the sizing's 90 % answerable (criterion 63 %) | eval-set + two graders | engineering team (VP Engineering) | hours |
+| 1 Model | is the component right? | attach precision · recall · router accuracy | 0.94 · 1.00 · 0.93 (report_v0) — on the 50 held-out cases 0.90 · 0.89 (`evals/README.md`) | offline eval-set | engineering team (VP Engineering) | seconds |
 
-_To be completed._
+Read it bottom-up: a better attach precision is a hypothesis about fewer wrong replies (level 3), which is a hypothesis about tickets closed and not reopened (level 4), which is a hypothesis about cost (level 5). The CFO's number moves last.
 
 ## 2 · Decide when to stop — the stop criterion
+> **"We stop improving the share of sendable replies at the 63 % of our criterion, because the level above — the investment decision — no longer responds to it: in 02_sizing even 75 % deflection gives a net value of +€5.1k a year, €9.9k below do-nothing (Decision C36 and E36); the decision flips on incident volume (about 2×, memo §2), not on quality. The next points would cost labelling and grading time — the €15k-a-year evaluation line (Decision D10) — for no change of decision."**
 
-_To be completed._
+- **Component metric and value:** sendable share 94 % on the answerable status tickets (report_v0) against the 70 % deflection the sizing assumes (Inputs D22).
+- **The level-above metric that stops responding:** the net annual value against do-nothing and the hurdle (02_sizing, Decision rows 32–36): flat, the bottleneck is volume — the "flat" curve of Session 5.
+- **Cost of the next point:** labelled replays of past incidents and two graders (Decision D10, €15k a year), plus the IC's time on every draft.
+- **What is a floor, not a stop:** zero replies on tickets that must go to a person, zero unapproved statements, zero other-customer mentions, zero merged incidents, attach precision ≥ 0.90 (H1). Report_v0 found two floor misses (P3-08 wrong incident, P3-34 scope of impact): they block the release whatever the sendable share.
 
 ## 3 · Choose what to protect — the hierarchy, by segment
 | Kind | Metric | Numerator / denominator | Level | Lag | Source & owner |
