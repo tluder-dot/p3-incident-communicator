@@ -103,3 +103,18 @@ Real sources at Telemetra: ticket text (customer-written, personal data), monito
 - **The model per part** — decided by the eval-set in Session 4.
 - **The legal basis for reusing past tickets** — the DPO decides (governance.md).
 - **Whether the IC approval step stays L2** — the VP Engineering decides; users can only tell us how fast they need it.
+
+## 11. After the prototype — what the eval changed (Sessions 4–5)
+*Source: `evals/report_v0.md` — 50 cases labelled by hand before one run on 17 November 2026. Brief v2 stands; these are the changes for v3.*
+
+| Change | Evidence |
+|---|---|
+| The criterion keeps its threshold (63 %) but is reported on two denominators: all status tickets of the set, and the answerable ones re-weighted to the 90 % of the sizing | the set oversamples traps on purpose: only 16 of its 33 status tickets are answerable, a 48 % ceiling (report_v0 §1, `spec.md` M5) |
+| Attach stays on rung 1 (rules) — no embeddings yet | precision 0.94, recall 1.00; the one miss is a vocabulary rule, not a model limit (P3-08) |
+| A word counts as a symptom only inside a symptom phrase, and facts saying a component "is not affected" block the attach | P3-08: "your status page" read as an alerting word sent the US alerting facts to a dashboard question (`spec.md` M3) |
+| A question about other customers or how many are affected is a scope-of-impact question: person only, by a rule | both graders overruled the first label of P3-17 and P3-34; P3-34 got an automatic reply (`spec.md` M2) |
+| The IC's draft says what customers may see, in a sentence — the mock drafter is not enough | 0 of 3 drafts publishable unchanged for both graders (`spec.md` M1) |
+| A facts version whose next-update time has passed is not sent again unchanged | P3-21: at 19:38 a reply promised an update by 19:30 (`spec.md` M4) |
+| The eval-set is 50 synthetic cases (v0) and 100 (v1), labelled by hand — not yet the 200 replayed incident tickets of §7, which wait for the DPO | reusing past tickets is a new purpose (governance.md, Session 3) |
+
+**What did not change:** the four MUSTs, the WON'T list, the L2 gate on every first message, and the NO-GO of the memo (`02_investment_memo.md` §6).
