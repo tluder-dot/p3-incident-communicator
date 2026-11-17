@@ -1,6 +1,6 @@
 # 01 · Problem statement
 
-**Team:** Team 8 · **Agent:** P3 · Proactive incident communicator · **Last updated:** 23 October 2026
+**Team:** Team 8 · **Agent:** P3 · Proactive incident communicator · **Last updated:** 17 November 2026 (where the hypotheses stand after Sessions 4–5, end of §6)
 
 > Every number says where it comes from: **measured**, **analogy** (a comparable, with its source) or **guess** (and how we will test it).
 
@@ -67,6 +67,11 @@ The process change and the rule come first. They are cheap, they belong to our b
 | 1 | The agent attaches tickets to the right incident: at least 90 % of the tickets it attaches really belong to the incident (precision), it catches at least 70 % of them (recall), and it never merges two different incidents. | guess | Replay 200 labelled tickets from two past incidents, including unrelated tickets opened in the same hours and one window with two overlapping incidents. Compare with the time-window rule. | S4 prototype |
 | 2 | The incident commander approves the first draft with minor edits only in at least 80 % of incidents, and the draft is ready within 5 minutes of the error-rate threshold being crossed. | guess | Run the prototype on the monitoring data, alerts and incident channel of 10 past incidents. An on-call engineer grades the drafts. Metric defined in S5. | S4 prototype · S5 metrics |
 | 3 | Accounts in regions where the agent is live open at least 30 % fewer tickets per incident than accounts in regions where it is not live yet, and the effect still holds after the first weeks. | guess | Incidents cannot be randomised, so we argue for a **stepped-wedge** design: the agent goes live region by region in a random order over several weeks, so every incident has treated and not-yet-treated accounts. Effect read by time since go-live, to separate the real effect from the **novelty effect**. Sample size in S6. | S5 metrics · S6 A/B |
+
+**Where the three hypotheses stand (17 November 2026):**
+- **H1 — attach:** precision 0.94 (17 / 18) and recall 1.00 on 50 hand-labelled synthetic cases (`evals/report_v0.md`), and 0.90 (18 / 20) and 0.89 on the 50 held-out cases of `eval_set_v1` — at the 0.90 floor, but one false-clustering miss sent the wrong incident's facts to an account the incident did not affect (P3-08 → `spec.md` line M3). Not yet tested on replays of real incidents: the DPO must clear the reuse of past tickets first.
+- **H2 — drafts the IC approves:** none of the 3 status-update drafts was publishable unchanged for both graders — the mock drafter pastes the IC's note instead of a customer sentence (`spec.md` M1). The draft is ready in seconds; the 80 % target needs the LLM drafter and real incidents.
+- **H3 — fewer tickets per incident:** the stepped-wedge protocol is written (`06_07_experiments_operations.md` §1–§2: region by region, 5 incidents per arm, two quarters) but not run — our memo stays NO-GO until the volume check.
 
 ## 7. Do-nothing baseline
 Doing nothing is not standing still, and it is not free.
