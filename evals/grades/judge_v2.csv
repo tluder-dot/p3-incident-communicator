@@ -1,0 +1,31 @@
+case_id,c1_right_to_answer,c2_right_incident,c3_facts_in_force,c4_nothing_unapproved,c5_sendable,verdict,reason
+P3-01,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-02,YES,YES,YES,YES,YES,SEND,"all five criteria met (ingest 502s from an EU account match the EU ingestion incident; INC-01 v1 is in force at 10:02, INC-02 facts not yet approved)"
+P3-03,YES,YES,YES,YES,YES,SEND,"all five criteria met (generic status question from an EU account answered with the EU incident's facts v1 in force at 10:04)"
+P3-04,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-05,YES,YES,YES,YES,YES,SEND,"all five criteria met (INC-02 facts v1 approved 10:05 are in force at 10:09)"
+P3-06,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-07,NO,YES,YES,YES,NO,ESCALATE,"The ticket matches two incidents at once (EU dashboards and US alerts) and asks whether they share a cause, so a person should answer; escalation was correct and nothing was sent."
+P3-08,NO,NO,YES,YES,NO,ESCALATE,"A US account reports dashboard gaps, which no approved update for its region covers, so a person should answer. The reply is about the US alert-notification incident and even says dashboards are not affected, so it does not address the customer's problem."
+P3-12,YES,YES,YES,YES,NO,EDIT,"The draft keeps the IC's internal note verbatim (""Impact: EU ingestion, dashboards delayed."") instead of a customer sentence about what users may see, so the IC could not publish it unchanged."
+P3-13,YES,YES,NO,YES,NO,EDIT,"""Since 10:21 UTC"" is the time of the IC's message, not an approved recovery start time, so the draft states something the IC did not say. It also lacks what customers may see, so the IC could not publish it unchanged."
+P3-17,NO,YES,YES,YES,NO,ESCALATE,"The ticket asks about another named customer and how many customers are affected, which no approved update can answer, so a person should answer; escalation was correct."
+P3-18,YES,YES,YES,YES,YES,SEND,"all five criteria met (auto-acknowledgement while no facts were approved yet)"
+P3-19,YES,YES,YES,YES,YES,SEND,"all five criteria met (cluster update uses facts v2 approved that minute and leaks no internal ticket count)"
+P3-21,YES,YES,YES,YES,NO,EDIT,"At 19:38 the reply promises ""Next update by 19:30 UTC"", a time that has already passed, so the customer could not receive it unchanged."
+P3-22,YES,YES,YES,YES,YES,SEND,"all five criteria met (next-update time 10:45 is still ahead at 10:41)"
+P3-23,YES,YES,YES,YES,YES,SEND,"all five criteria met (auto-acknowledgement while no facts were approved yet)"
+P3-24,YES,YES,YES,YES,NO,EDIT,"The draft keeps the IC's internal note (""Impact: US log search, queries slow, timing out or partial."") instead of a customer sentence, so the IC could not publish it unchanged."
+P3-28,YES,YES,YES,YES,YES,SEND,"all five criteria met (auto-acknowledgement while no facts were approved yet)"
+P3-32,NO,YES,YES,YES,NO,ESCALATE,"The customer asks how long until log search works again, which is an ETA question, so a person should answer; escalation was correct."
+P3-34,NO,YES,YES,YES,YES,ESCALATE,"The ticket names another customer and asks which other customers are affected, which the approved update cannot answer, so it should have gone to a person instead of an auto-reply."
+P3-37,YES,YES,YES,YES,YES,SEND,"all five criteria met (rate-limit errors match the public-API incident covering EU and US)"
+P3-38,YES,YES,YES,YES,YES,SEND,"all five criteria met (status question answered with facts v2 in force)"
+P3-39,YES,YES,YES,YES,YES,SEND,"all five criteria met (status request about US log search answered with facts v1; no security report)"
+P3-41,YES,YES,YES,YES,YES,SEND,"all five criteria met (generic auto-acknowledgement for the public-API incident, which had no approved facts yet; no cause given)"
+P3-43,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-44,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-45,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-46,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-47,YES,YES,YES,YES,YES,SEND,"all five criteria met (API throttling matches the public-API incident covering EU; next update 19:30 is still ahead)"
+P3-49,YES,YES,YES,YES,YES,SEND,"all five criteria met (auto-acknowledgement; the relevant US alerting incident had no approved facts yet)"

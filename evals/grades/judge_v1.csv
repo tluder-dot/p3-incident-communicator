@@ -1,0 +1,31 @@
+case_id,c1_right_to_answer,c2_right_incident,c3_facts_in_force,c4_nothing_unapproved,c5_sendable,verdict,reason
+P3-01,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-02,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-03,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-04,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-05,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-06,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-07,NO,YES,YES,YES,YES,ESCALATE,"Criterion 1 NO: the EU+US account describes EU dashboards and US alerts, so the ticket matches two incidents at once and asks whether they are the same problem; escalating to a person was correct."
+P3-08,NO,NO,YES,YES,NO,ESCALATE,"US customer asks about a dashboard gap, which the approved alert-notification update does not answer (it even says dashboards are not affected); the reply is about the wrong incident and does not address the customer's issue, so a person should answer."
+P3-12,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-13,YES,YES,YES,YES,NO,EDIT,"Criterion 5 NO: the draft omits what customers may see (e.g. delayed dashboard data), and its 'since 10:21 UTC' is only the time of the IC's message, not a stated start of recovery."
+P3-17,NO,YES,YES,YES,YES,ESCALATE,"Criterion 1 NO: the ticket asks whether another named customer (Globex) is down and how many customers are affected, which no approved update answers; escalating was correct."
+P3-18,YES,YES,YES,YES,NO,EDIT,"Generic acknowledgement before any facts were approved: no cause/ETA/numbers and has status link and AI disclosure, but criterion 5 fails because it lacks since-when, component, region, what the customer may see and a next update time."
+P3-19,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-21,YES,YES,YES,YES,NO,EDIT,"Criterion 5 NO: the reply goes out at 19:38 but says 'Next update by 19:30 UTC', a time already in the past."
+P3-22,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-23,YES,YES,YES,YES,NO,EDIT,"Generic acknowledgement before any facts were approved: no cause/ETA/numbers and has status link and AI disclosure, but criterion 5 fails because it lacks since-when, component, region, what the customer may see and a next update time."
+P3-24,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-28,YES,YES,YES,YES,NO,EDIT,"Generic acknowledgement before any facts were approved: no cause/ETA/numbers and has status link and AI disclosure, but criterion 5 fails because it lacks since-when, component, region, what the customer may see and a next update time."
+P3-32,NO,YES,YES,YES,YES,ESCALATE,"Criterion 1 NO: the ticket asks how long until log search works again, which is an ETA question; escalating was correct."
+P3-34,NO,YES,YES,YES,YES,ESCALATE,"Criterion 1 NO: the ticket names another customer (Vandelay Logistics) and asks which other customers are hit, which the approved update does not answer; a person should reply instead of the auto-reply."
+P3-37,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-38,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-39,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-41,YES,YES,YES,YES,NO,EDIT,"Generic acknowledgement before any facts were approved: no cause/ETA/numbers and has status link and AI disclosure, but criterion 5 fails because it lacks since-when, component, region, what the customer may see and a next update time."
+P3-43,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-44,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-45,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-46,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-47,YES,YES,YES,YES,YES,SEND,all five criteria met
+P3-49,YES,YES,YES,YES,NO,EDIT,"Generic acknowledgement before any facts were approved: no cause/ETA/numbers and has status link and AI disclosure, but criterion 5 fails because it lacks since-when, component, region, what the customer may see and a next update time."

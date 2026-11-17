@@ -1,0 +1,31 @@
+case_id,grader,agent_decision,c1_right_to_answer,c2_right_incident,c3_facts_in_force,c4_nothing_unapproved,c5_sendable,verdict,reason
+P3-01,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-02,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-03,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,"Vague, but it's an EU account so only INC-01 can apply. Fine."
+P3-04,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-05,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-06,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-07,Till Lüder,human_queue,NO,YES,YES,YES,NO,ESCALATE,"Fits two incidents (INC-01 EU dashboards and INC-02 US alerts) and asks if they are the same problem, which is basically a cause question. Right call to hand it to a person."
+P3-08,Till Lüder,auto_reply,NO,NO,YES,YES,NO,ESCALATE,"US account with a dashboard gap. INC-01 is EU only and INC-02 even says dashboards are not affected, so no open incident covers this. Agent sent the US alerting text anyway. A person needs to look at it."
+P3-12,Till Lüder,draft_for_IC,YES,YES,YES,YES,NO,EDIT,"Good that the Kafka guess and the 30 min fix time are left out. But 'Impact: EU ingestion, dashboards delayed.' is just the IC's channel note pasted in. No customer sentence on what they may see (missing or delayed data on EU dashboards). IC would rewrite that line before publishing."
+P3-13,Till Lüder,draft_for_IC,YES,YES,YES,YES,NO,EDIT,"Leaves out Globex and the 60 %, good. But there is no line on what customers may see (dashboards may still show delayed data). Also 10:21 is just the time of the IC's message, worth a check. IC would not publish it as is."
+P3-17,Till Lüder,human_queue,NO,YES,YES,YES,NO,ESCALATE,"Asks about another customer (Globex) and how many customers are affected. Nothing the agent can answer, correct escalation."
+P3-18,Till Lüder,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-19,Till Lüder,update_cluster,YES,YES,YES,YES,YES,SEND,
+P3-21,Till Lüder,auto_reply,YES,YES,YES,YES,NO,EDIT,"Right incident and the only approved version, but at 19:38 it still says 'Next update by 19:30 UTC', which has already passed. Customer asks for an update and gets an overdue promise. Needs a fresh next update time from the IC."
+P3-22,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-23,Till Lüder,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-24,Till Lüder,draft_for_IC,YES,YES,YES,YES,NO,EDIT,"Same issue as P3-12. Compaction guess and the 20 min restart estimate are left out, good. But the 'Impact:' line is channel shorthand, not a sentence for customers (queries may time out or return partial results). IC would rewrite it before publishing."
+P3-28,Till Lüder,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-32,Till Lüder,human_queue,NO,YES,YES,YES,NO,ESCALATE,"Pure ETA question (they need it for their 19:00 release). No approved ETA, so a person has to answer. Correct escalation."
+P3-34,Till Lüder,auto_reply,NO,YES,YES,YES,NO,ESCALATE,"Asks which other customers are hit (names Vandelay) and if it's everyone in the EU. That's impact scope, not a status question. The v2 text is right but ignores what they actually asked. A person should answer."
+P3-37,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-38,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-39,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,"SOC investigation is their context, not a security report to us. Plain status request and v1 answers it."
+P3-41,Till Lüder,rule_ack,YES,YES,YES,YES,YES,SEND,"Read 'What happened?' as 'is it on your side', not as a root cause request. No INC-04 facts yet at 18:47, so the ack is all we could say."
+P3-43,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-44,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-45,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-46,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-47,Till Lüder,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-49,Till Lüder,rule_ack,YES,YES,YES,YES,YES,SEND,

@@ -1,0 +1,2 @@
+tested_at_utc,who,role,where,prototype_commit,positions_tested,result,seconds
+2026-11-17T16:47+00:00,Till Lüder,support lead on duty (role played),laptop (= staging for the project),8cc2b95,SUGGEST_ONLY · OFF · ON,pass,0.13

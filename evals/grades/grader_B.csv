@@ -1,0 +1,31 @@
+case_id,grader,agent_decision,c1_right_to_answer,c2_right_incident,c3_facts_in_force,c4_nothing_unapproved,c5_sendable,verdict,reason
+P3-01,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-02,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-03,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-04,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-05,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-06,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-07,Benjamin Rasson,human_queue,NO,YES,YES,YES,NO,ESCALATE,"Fits two incidents (EU dashboards + US alerts) and asks if they are linked, a person has to answer. Agent was right to queue it."
+P3-08,Benjamin Rasson,auto_reply,NO,NO,YES,YES,NO,ESCALATE,"US account asking about dashboards, no open incident covers US dashboards. Agent answered with the alerting facts, which even say dashboards are not affected."
+P3-12,Benjamin Rasson,draft_for_IC,YES,YES,YES,YES,NO,EDIT,"""Impact: EU ingestion, dashboards delayed."" is just the IC's internal note pasted in. Needs a real sentence on what customers may see (missing/delayed dashboard data). Kafka guess and 30 min fix correctly left out."
+P3-13,Benjamin Rasson,draft_for_IC,YES,YES,NO,YES,NO,EDIT,"""Since 10:21"" is the time of the IC's message, not when recovery started (IC gave no time). Also no line on what customers may still see. Globex + 60% correctly left out."
+P3-17,Benjamin Rasson,human_queue,NO,YES,YES,YES,NO,ESCALATE,"Asks about another customer (Globex) and how many are affected, a person must answer. Correct to queue."
+P3-18,Benjamin Rasson,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-19,Benjamin Rasson,update_cluster,YES,YES,YES,YES,YES,SEND,
+P3-21,Benjamin Rasson,auto_reply,YES,YES,YES,YES,NO,EDIT,"At 19:38 the text still says ""Next update by 19:30 UTC"", which is already past. Looks stale, needs a new next-update time from the IC before sending."
+P3-22,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-23,Benjamin Rasson,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-24,Benjamin Rasson,draft_for_IC,YES,YES,YES,YES,NO,EDIT,"Same as P3-12: the ""Impact: ..."" line is copied shorthand, rewrite as a customer sentence. Compaction guess and 20 min fix correctly left out."
+P3-28,Benjamin Rasson,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-32,Benjamin Rasson,human_queue,NO,YES,YES,YES,NO,ESCALATE,"ETA question (release at 19:00), a person must answer. Correct to queue."
+P3-34,Benjamin Rasson,auto_reply,NO,YES,YES,YES,NO,ESCALATE,"Asks which other customers are hit and if it is everyone in the EU (names Vandelay). That is impact/other customers, needs a person. The auto-reply does not answer it."
+P3-37,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-38,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-39,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-41,Benjamin Rasson,rule_ack,YES,YES,YES,YES,YES,SEND,
+P3-43,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-44,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-45,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-46,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-47,Benjamin Rasson,auto_reply,YES,YES,YES,YES,YES,SEND,
+P3-49,Benjamin Rasson,rule_ack,YES,YES,YES,YES,YES,SEND,
