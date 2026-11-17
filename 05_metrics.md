@@ -11,12 +11,34 @@ _To be completed._
 _To be completed._
 
 ## 3 · Choose what to protect — the hierarchy, by segment
+| Kind | Metric | Numerator / denominator | Level | Lag | Source & owner |
+|---|---|---|---|---|---|
+| **Primary (1)** | "is it down?" tickets closed by the agent and not reopened within 48 h | status tickets answered by the agent and not reopened in 48 h / all status tickets of the incident | 4 product | 48 h after each incident | ticket log · Head of Support |
+| Guardrail | unapproved statements and other-customer mentions sent | sent texts with an unapproved cause, ETA, scope, data-loss claim or another customer / all sent texts — **floor 0** | 3 | real time (the trace) | trace · IC on duty; DPO for other customers |
+| Guardrail | attach precision on the weekly sample (false clustering) | sampled attached tickets that belong to their incident / sampled attached tickets — **≥ 0.90** (H1; 0.94 in report_v0) | 1–3 | one incident | weekly 5 % sample *(chosen)* · support lead |
+| Guardrail | time to first human answer for the tickets the agent did **not** answer | median minutes, human queue during an incident — **not above the same incident type without the agent** | 4 | hours | ticket log · Head of Support |
+| Counter-metric | wrong replies: "Not this incident" clicks + agent replies reopened as wrong | wrong agent replies / agent replies — the line between "sent wrong" and "harmful" is the harm threshold below | 4 | 48 h | ticket log + trace · support lead |
+| Counter-metric | churn of accounts that went through an incident | accounts lost / accounts hit by an incident, per year — 8 % today (02_sizing, Inputs G67) | 5 | 3–12 months | billing + exit survey · CFO |
 
-_To be completed._
+- **Segments reported** (from the Session 3 audit): region (EU · US · EU + US) · plan (self-serve · enterprise) · language (English · other) · single vs overlapping incidents.
+- **Fairness metric, named:** **equal error rates** across segments — the wrong-reply rate EU vs US and self-serve vs enterprise must not differ by more than 2× *(chosen)*. **Selection-rate parity** by language is broken by design (non-English tickets never get an automatic reply — a WON'T): we report it, and guardrail 3 makes sure those customers do not wait longer for a person.
+- **Harm threshold** (copied into `governance.md`): *If the wrong-reply rate in any region or plan exceeds 6 % during an incident — the pessimistic error rate of 02_sizing (Inputs C26) — or if one unapproved statement or other-customer mention is sent, the agent drops to SUGGEST_ONLY — for that segment once the per-segment switch is built (`spec.md`), for all clusters until then — until the cause is explained. Owner: the Head of Support; reviewed with the DPO every month.*
+- **How it could be gamed → the repair:** closing tickets right after the reply moves the primary → the 48-hour reopen window and the wrong-reply counter-metric. Making "reply human" hard moves it too (Klarna) → guardrail 3, the time to first human answer for the people the agent does not serve.
 
 ## 4 · Derive the business metrics — three, with expected effects
+| Business metric | Baseline | Expected effect | Lag | Read date | It is a hypothesis about… |
+|---|---|---|---|---|---|
+| Yearly cost of incident tickets handled by people | €300k (02_sizing: Inputs D6 × D9 × 12) | **−€49.6k in year 1** (Upside D12: 4,961 tickets deflected × €10). The eval says the customer replies are not the constraint: 94 % of the answerable ones are sendable (report_v0) against the 70 % deflection planned (Inputs D22); sendable is an upper bound of deflection, because the customer may still write back | 1 month | month 2 of the pilot | attach + template → tickets closed without a person → hours of support saved |
+| Median minutes from the first ticket to the first customer-facing update | 40 min (`01_problem_statement.md` §1, a guess to measure on the last 12 postmortems — the one baseline not in the sizing) | **≤ 10 min**: the auto-acknowledge rule answers in seconds and the facts reply leaves as soon as the IC approves; but 0 of the 3 IC drafts were publishable unchanged (report_v0) — the drafter is what this metric waits for (`spec.md` M1), the H2 test of `01` | per incident | after 5 incidents (≈ one quarter: about 5 incidents a quarter, Inputs G39) | IC approval speed → first update → fewer duplicate tickets |
+| Churn of accounts that went through an incident | 8 % a year (Inputs G67) | **unchanged, ± 0.5 point** *(chosen band)* — stated as a non-effect: the 3 accounts the sizing hopes to keep (Inputs D67, €36k) are 0.06 point of 5,000 accounts, too small to see; the band is there to catch harm. Above 8.5 % stops the rollout | 3–12 months | month 12, exit-survey reasons every quarter | that faster, tailored updates do not cost trust when one is wrong |
 
-_To be completed._
+**The tree** (component → product → business, each arrow a hypothesis Sessions 6 + 7 test):
+```
+attach precision 0.94 · router 0.93 · floors: 2 misses            (component, report_v0)
+        └─▶ sendable replies 94 % of the answerable ones · IC drafts 0 / 3   (AI system, two graders)
+                └─▶ status tickets closed, not reopened in 48 h: 70 % planned (Inputs D22)   (product)
+                        └─▶ −€49.6k of support time in year 1 (Upside D12) · first update 40 → ≤ 10 min · churn 8 % unchanged ± 0.5 pt   (business)
+```
 
 ## 5 · Make the judge trustworthy — the evaluation plan
 - **Eval-set v1:** `evals/eval_set_v1.csv`, 100 cases, stratified by region, plan, language, case type and morning / evening scenario; inputs synthetic and tagged in `origin`, labels written by a person (Till Lüder); **golden set of 30** = the 30 cases both graders graded — they never change.
