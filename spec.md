@@ -1,7 +1,8 @@
-# spec.md — executable spec · Incident Messenger (P3) · v2
+# spec.md — executable spec · Incident Messenger (P3) · v2 — final for v1.0
 
 > Session 3 skeleton (v0), turned into v2 after the first prototype run (Session 4, `evals/report_v0.md`). What Claude Code (or Cursor) reads to build the prototype.
 > Same content as `03_product_brief.md`, with nothing left vague: inputs, outputs, edge cases, fallbacks, done.
+> **Final version for the tag v1.0 (26 November 2026).** `/prototype` builds the skeleton and the plain **[v2]** lines; the **[v2 · miss]**, **[held-out v1]** and **red-row** lines are the next build — step 0 of `08_launch_memo.md` §3, before any pilot.
 > **[v2]** = changed since the skeleton because of what we built · **[v2 · miss M#]** = a line written because the eval found a miss (`evals/report_v0.md` §2). A miss that is not in the spec comes back.
 
 ## problem

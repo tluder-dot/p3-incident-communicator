@@ -3,7 +3,7 @@
 > Session 3. One page. Built from `01_problem_statement.md`, `02_sizing.xlsx` and `02_investment_memo.md`.
 > v1 now. v2 after the users: sections 9 and 10 are filled only from `03_user_research.md`.
 
-**Team:** Team 8 · **Starting point:** P3 · Proactive incident communicator · **Version:** v2 — 6 November 2026 (v1 → v2 after simulated user research)
+**Team:** Team 8 · **Starting point:** P3 · Proactive incident communicator · **Version:** final (v1.0) — 26 November 2026: v2 of 6 November (after the simulated user research), §11 what the prototype and the eval changed, §12 the decision
 
 ## 1. Problem, user, do-nothing *(from 01)*
 - **Problem in one sentence:** during a platform incident, Telemetra's 12 support engineers receive about 1,500 tickets, 70 % of them asking "is it down?", and customers wait about 40 minutes for the first update; incident tickets cost about €300k a year (20 incidents × 1,500 tickets × €10).
@@ -118,3 +118,6 @@ Real sources at Telemetra: ticket text (customer-written, personal data), monito
 | The eval-set is 50 synthetic cases (v0) and 100 (v1), labelled by hand — not yet the 200 replayed incident tickets of §7, which wait for the DPO | reusing past tickets is a new purpose (governance.md, Session 3) |
 
 **What did not change:** the four MUSTs, the WON'T list, the L2 gate on every first message, and the NO-GO of the memo (`02_investment_memo.md` §6).
+
+## 12. The decision (Session 8)
+**No-go for customers this year — conditional go** when the 12-month ticket log shows about twice today's incident volume **and** spec v2 brings the floor misses to zero on `evals/eval_set_v1.csv`. From 1 December 2026 we launch the cheap alternative instead (comms-lead role, auto-acknowledge rule) and the incident banner; the agent is re-decided on 14 January 2027 by the Head of Support and the CFO. Details, rollout steps and budget: `08_launch_memo.md`.
