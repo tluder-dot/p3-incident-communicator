@@ -4,13 +4,13 @@
 **Cohort:** M2-INTER-1
 
 ## Team
-| Name | Git handle | Also in the Agentic Workflows team? |
-|---|---|---|
-| Till Lüder | tluder-dot | |
-| Evaluna Barth | evalunab | |
-| Benjamin Rasson | benji1759 | |
-| Teo Desquatrevaux | teodesquatrevaux | |
-| Coline Renauld | colinernld | |
+| Name | Git handle |
+|---|---|
+| Till Lüder | tluder-dot |
+| Evaluna Barth | evalunab |
+| Benjamin Rasson | benji1759 |
+| Teo Desquatrevaux | teodesquatrevaux |
+| Coline Renauld | colinernld |
 
 ## Our agent
 - **Starting point:** P3 · Proactive incident communicator, DevOps / observability SaaS
