@@ -84,7 +84,7 @@ Real sources at Telemetra: ticket text (customer-written, personal data), monito
 *v2 only — after the users (fill from `03_user_research.md`, never invent)*
 
 ## 9. What the users changed
-*Source: `03_user_research.md` — simulated interviews (agreed with the lecturer), to be confirmed with real users before Session 6.*
+*Source: `03_user_research.md` — simulated interviews (agreed with the lecturer); not yet confirmed with real users — open question 3 of `08_launch_memo.md` §6.*
 
 | Change | Evidence (who said / did what) |
 |---|---|

@@ -1,6 +1,6 @@
 # 03 — User research · Incident Messenger (P3)
 
-> **Status: simulated interviews.** The three conversations and the usability test below were written as role-play scenarios with the agreement of the lecturer (C. Oprean, 6 November 2026), because we could not reach real users before the deadline. **They are not real user evidence.** We will replace them with real conversations (or classmates in role) before Session 6, and update brief v2 if the findings change.
+> **Status: simulated interviews.** The three conversations and the usability test below were written as role-play scenarios with the agreement of the lecturer (C. Oprean, 6 November 2026), because we could not reach real users before the deadline. **They are not real user evidence.** We planned to replace them with real conversations before Session 6; **that did not happen** (status on 26 November 2026). Three real conversations — an incident commander, a support engineer and an on-call SRE — are open question 3 of `08_launch_memo.md` §6, before any pilot.
 > Mom Test rules (Rob Fitzpatrick): past behaviour, no pitching, never "would you use…?".
 
 ## Who we "talked" to (simulated personas)
@@ -46,4 +46,4 @@
 - [x] At least one said "I want this before…" — the IC: before the next on-call rotation
 - [x] Our out-of-scope list grew (no cause speculation copied from the channel); our success criterion did not move
 
-**Decision:** go to the Session 4 build with brief v2 — **provisional**, to be confirmed by real interviews before Session 6.
+**Decision:** go to the Session 4 build with brief v2 — **provisional**. Not yet confirmed by real interviews (see the status line at the top).
