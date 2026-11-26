@@ -3,7 +3,7 @@
 > Session 3. One page. Built from `01_problem_statement.md`, `02_sizing.xlsx` and `02_investment_memo.md`.
 > v1 now. v2 after the users: sections 9 and 10 are filled only from `03_user_research.md`.
 
-**Team:** Team 8 · **Starting point:** P3 · Proactive incident communicator · **Version:** final (v1.0) — 26 November 2026: v2 of 6 November (after the simulated user research), §11 what the prototype and the eval changed, §12 the decision
+**Team:** Team 9 · **Starting point:** P3 · Proactive incident communicator · **Version:** final (v1.0) — 26 November 2026: v2 of 6 November (after the simulated user research), §11 what the prototype and the eval changed, §12 the decision
 
 ## 1. Problem, user, do-nothing *(from 01)*
 - **Problem in one sentence:** during a platform incident, Telemetra's 12 support engineers receive about 1,500 tickets, 70 % of them asking "is it down?", and customers wait about 40 minutes for the first update; incident tickets cost about €300k a year (20 incidents × 1,500 tickets × €10).

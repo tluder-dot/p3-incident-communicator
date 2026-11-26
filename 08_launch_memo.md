@@ -1,6 +1,6 @@
 # Launch memo — Incident Messenger (P3) — 26 November 2026
 
-> One page. Team 8. Every number is in `02_sizing.xlsx` (cell named), `evals/` or `06_07_experiments_operations.md`.
+> One page. Team 9. Every number is in `02_sizing.xlsx` (cell named), `evals/` or `06_07_experiments_operations.md`.
 
 ## 1 · Decision
 **No-go for customers this year — conditional go when two things are true:** the 12-month ticket log shows about twice today's incident volume (the flip point of `02_investment_memo.md`), **and** spec v2 is built with zero floor misses on `evals/eval_set_v1.csv`. **What we launch instead, from 1 December 2026:** the cheap alternative — a comms-lead role in the incident runbook and the auto-acknowledge rule — and the next-best project, the in-product incident banner. The next decision is read on **14 January 2027** by the **Head of Support** and the **CFO**, with the ticket log in hand.

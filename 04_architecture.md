@@ -1,4 +1,4 @@
-# 04 · Architecture — Team 8 · Incident Messenger (P3)
+# 04 · Architecture — Team 9 · Incident Messenger (P3)
 
 > Session 4 deliverable. It describes the prototype we built in `/prototype` (v1, November 2026), not the one we plan. Every line matches a file there.
 

@@ -1,4 +1,4 @@
-# Team 8 · Proactive incident communicator for DevOps SaaS
+# Team 9 · Proactive incident communicator for DevOps SaaS
 
 **Course:** Data & AI Product: From Diagnosis to Delivery (MSA-DAT07-04) · Albert School · shared project with Agentic Workflows
 **Cohort:** M2-INTER-1

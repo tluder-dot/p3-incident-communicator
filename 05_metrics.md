@@ -1,4 +1,4 @@
-# 05 · Metrics — Team 8 · Incident Messenger (P3)
+# 05 · Metrics — Team 9 · Incident Messenger (P3)
 
 > Session 5 deliverable. Five sections = the five moves of the session. Every number comes from `02_sizing.xlsx` (cell named) or `evals/report_v0.md` and the eval folder it summarises (`evals/README.md`). Declared exceptions: the 40-minute baseline and the ≤ 10-minute target of `01_problem_statement.md`, and the ~2× volume flip of `02_investment_memo.md` §2. Three numbers are thresholds we chose, marked *(chosen)*: the 2× gap for equal error rates, the ± 0.5-point churn band, the 5 % weekly sample.
 

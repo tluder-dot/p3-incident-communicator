@@ -1,6 +1,6 @@
 # 01 · Problem statement
 
-**Team:** Team 8 · **Agent:** P3 · Proactive incident communicator · **Last updated:** 17 November 2026 (where the hypotheses stand after Sessions 4–5, end of §6)
+**Team:** Team 9 · **Agent:** P3 · Proactive incident communicator · **Last updated:** 17 November 2026 (where the hypotheses stand after Sessions 4–5, end of §6)
 
 > Every number says where it comes from: **measured**, **analogy** (a comparable, with its source) or **guess** (and how we will test it).
 
